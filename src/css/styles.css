@@ -1,0 +1,14 @@
+.title{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+.info{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+
+}
+.jamsz{
+    margin: auto;
+    width: 85vw;
+    border-radius: 1em;   
+}
