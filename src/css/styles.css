@@ -52,6 +52,8 @@ body {
     font-size: 1.5rem;
 }
 
+/*About us*/
+
 .title {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
@@ -65,6 +67,63 @@ body {
     margin: auto;
     width: 85vw;
     border-radius: 1em;   
+}
+
+#Title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*Planet info*/
+
+#planets {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40%;
+    align-items: center;
+    margin-left: -15%;
+    gap: 1rem;
+}
+
+img {
+    display: block;
+    margin: 1rem 0;
+}
+
+.sun {
+    width: 30%;
+}
+
+.mercury {
+    width: 5%;
+}
+
+.venus {
+    width: 15%;
+}
+
+.earth {
+    width: 16%;
+}
+
+.mars {
+    width: 8%;
+}
+
+.jupiter {
+    width: 20%;
+}
+
+.saturn {
+    width: 25%;
+}
+
+.uranus {
+    width: 20%;
+}
+
+.neptune {
+    width: 19%;
 }
 
 /* Clock */
