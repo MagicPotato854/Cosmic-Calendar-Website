@@ -1,0 +1,202 @@
+/* Colors */
+
+
+
+/* Elements */
+
+body {
+  margin: auto;
+  margin-top: 1em;
+  width: 70%;
+  background-color: rgb(224, 160, 244);
+  background-image: url('../assets/Space\ BG.png') !important;
+  background-attachment: fixed;
+  min-height: 100% !important;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+h1 {text-align: center; color: rgb(240, 240, 240);}
+h2 {font-size: 2em; color: rgb(240, 240, 240);}
+h3 {font-size: 1.5em; color: rgb(240, 240, 240);}
+
+p {text-indent: 2em; font-size: 1.5em; color: rgb(240, 240, 240);}
+
+form {font-size: 1.5em; color: rgb(240, 240, 240);}
+input {font-size: 0.75em;}
+
+/* Clock */
+
+.face {
+  width: 32em;
+  height: 32em;
+  border-radius: 16em;
+  border-style: solid;
+  border-width: 0.25em;
+  position: absolute;
+  top: 2em;
+  left: calc(50% - 16em);
+  background-color: rgb(224, 224, 224);
+}
+
+.second {
+  width: 28em;
+  height: 0.25em;
+  background-image: conic-gradient(#FF0000 0deg, #FF0000 180deg, rgba(0, 0, 0, 0) 180deg);
+  position: absolute;
+  top: 18.125em;
+  left: calc(50% - 14em);
+  transform: rotate(-90deg);
+}
+
+.minute {
+  width: 28em;
+  height: 0.25em;
+  background-image: conic-gradient(#000000 0deg, #000000 180deg, rgba(0, 0, 0, 0) 180deg);
+  position: absolute;
+  top: 18.125em;
+  left: calc(50% - 14em);
+  transform: rotate(-90deg);
+}
+
+.hour {
+  width: 20em;
+  height: 0.25em;
+  background-image: conic-gradient(#000000 0deg, #000000 180deg, rgba(0, 0, 0, 0) 180deg);
+  position: absolute;
+  top: 18.125em;
+  left: calc(50% - 10em);
+  transform: rotate(-90deg);
+}
+
+.pin {
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  left: calc(50% - 0.5em);
+  top: 17.75em;
+  border-radius: 0.5em;
+  background-color: rgb(64, 64, 64);
+}
+
+.digital {
+  background-color: rgb(64, 64, 64);
+  color: rgb(0, 255, 0);
+  font-family: "Lucida Console";
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 1em;
+  text-align: center;
+  padding: 1em;
+  margin: auto;
+  margin-top: 1em;
+  width: 8em;
+  position: relative;
+  top: 24em;
+}
+
+/* Load Animation */
+
+@keyframes load {
+  from {
+    background-image: none;
+    opacity: 0;
+    background-color: rgb(224, 160, 244);
+  }
+  to {
+    background-attachment: fixed;
+    background-image: url('../assets/Space\ BG.png') !important;
+    opacity: 1;
+    
+  }
+}
+
+@keyframes unload {
+  from {
+    background-image: url('../assets/Space\ BG.png') !important;
+    opacity: 1;
+  }
+  to {
+    background-attachment: fixed;
+    background-image: none;
+    opacity: 0;
+    background-color: rgb(224, 160, 244);
+  }
+}
+
+/* Navigation */
+
+.navigation {
+  text-align: center;
+}
+
+.nav, .navArrow {
+  background-color: rgb(128, 208, 128);
+  color: rgb(0, 0, 0);
+  padding: 0.25em;
+  margin: 0.1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  cursor: pointer;
+  border-radius: 0.25em;
+}
+
+a.nav:hover, a.nav:active, a.navArrow:hover, a.navArrow:active {
+  background-color: rgb(128, 192, 128);
+}
+
+.navArrow {
+  font-family: Consolas;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+}
+
+div.navArrow {
+  background-color: rgb(160, 192, 160);
+  color: rgb(128, 128, 128);
+  cursor: not-allowed;
+}
+
+/* Other */
+
+.statHead {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background-color: rgba(240, 240, 240, .75);
+  color: rgb(0, 0, 0);
+  padding: 8px;
+}
+
+.ODBox {
+  position: relative;
+  height: 400px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background-color: rgb(64, 0, 64);
+}
+
+.ODBSign {
+  position: absolute;
+  height: 400px;
+  line-height: 400px;
+  font-size: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  z-index: 1;
+}
+
+.pass {
+  text-align: center;
+  margin: 1em;
+  font-family: Consolas;
+}
+
+.log {
+  color: rgb(240, 240, 240);
+}
