@@ -1,0 +1,53 @@
+/*Define Font Families*/
+
+@font-face {
+    font-family: "Chopsic";
+    src: url('../assets/fonts/Chopsic-K6Dp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Font Styles*/
+
+body {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#title {
+    font-family: "Chopsic";
+    color: white;
+    background-color: black;
+    font-size: 7.5vw;
+    text-align: center;
+    margin-top: -5%;
+    padding-left: 10px;
+    padding-right: 15px;
+    border-radius: 1em;
+    box-shadow: 10px 10px 15px 0px gray;
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #90ffd4;
+    height: 5%;
+    position: absolute;
+    bottom: 0.8em;
+    right: 1em;
+    left: 1em;
+    width: calc(100% - 2em);
+    align-self: center;
+}
+
+#dark-mode {
+    background-color: transparent;
+
+}
+
+#info {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-indent: 2em;
+    font-size: 1.5rem;
+}
