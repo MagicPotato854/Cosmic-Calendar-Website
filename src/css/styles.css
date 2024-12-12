@@ -75,57 +75,6 @@ body {
 
 /*Planet info*/
 
-#planets {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 40%;
-    align-items: center;
-    margin-left: -15%;
-    gap: 1rem;
-}
-
-img {
-    display: block;
-    margin: 1rem 0;
-}
-
-.sun {
-    width: 30%;
-}
-
-.mercury {
-    width: 5%;
-}
-
-.venus {
-    width: 15%;
-}
-
-.earth {
-    width: 16%;
-}
-
-.mars {
-    width: 8%;
-}
-
-.jupiter {
-    width: 20%;
-}
-
-.saturn {
-    width: 25%;
-}
-
-.uranus {
-    width: 20%;
-}
-
-.neptune {
-    width: 19%;
-}
-
 /* Clock */
 
 .face {
@@ -195,3 +144,59 @@ img {
     position: relative;
     top: 24em;
   }
+
+
+
+
+/*planet history*/
+
+  #planets {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40%;
+    align-items: center;
+    margin-left: -15%;
+    gap: 1rem;
+}
+
+img {
+    display: block;
+    margin: 1rem 0;
+}
+
+.sun {
+    width: 30%;
+}
+
+.mercury {
+    width: 5%;
+}
+
+.venus {
+    width: 15%;
+}
+
+.earth {
+    width: 16%;
+}
+
+.mars {
+    width: 8%;
+}
+
+.jupiter {
+    width: 20%;
+}
+
+.saturn {
+    width: 25%;
+}
+
+.uranus {
+    width: 20%;
+}
+
+.neptune {
+    width: 19%;
+}
