@@ -58,8 +58,8 @@ body {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
-#info {
-    font-family: 'Courier New', Courier, monospace;
+.info {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(5, 15, 69);
     background-color: rgba(129, 128, 128, 0.4);
     font-size: 1vw;
