@@ -48,9 +48,9 @@ function shortcut(key, altKey, href) {
 
 // Set Elements
 
-for(let i = 0; i < head.length; i++) head[i].innerHTML += headHTML;
+// for(let i = 0; i < head.length; i++) head[i].innerHTML += headHTML;
 
-for(let i = 0; i < body.length; i++) body[i].innerHTML += bodyHTML;
+// for(let i = 0; i < body.length; i++) body[i].innerHTML += bodyHTML;
 
 // Events
 
