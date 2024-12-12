@@ -48,9 +48,9 @@ function shortcut(key, altKey, href) {
 
 // Set Elements
 
-for(let i = 0; i < head.length; i++) head[i].innerHTML += headHTML;
+// for(let i = 0; i < head.length; i++) head[i].innerHTML += headHTML;
 
-for(let i = 0; i < body.length; i++) body[i].innerHTML += bodyHTML;
+// for(let i = 0; i < body.length; i++) body[i].innerHTML += bodyHTML;
 
 // Events
 
@@ -58,3 +58,33 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.querySelector('body').style = "animation-name: load;" +
     "animation-duration: 0.75s;";
 });
+
+
+
+
+
+// Transitions
+
+window.onload = () => {
+  const transition_el = document.querySelector('.transition');
+  const anchors = document.querySelectorAll('a');
+
+  setTimeout(() => {
+    transition_el.classList.remove('is-active');
+  }, 500);
+
+  for (let i = 0; i < achors.length; i++) {
+    const anchor = anchors[i];
+
+    anchor.addEventListener('click', e => {
+      e.preventDefault();
+      let target = e.target.href;
+
+      transition_el.classList.add('is-active');
+
+      setTimeout(() => {
+        window.location.href = target;
+      }, 500);
+    });
+  }
+}
