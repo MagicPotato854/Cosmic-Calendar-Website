@@ -18,11 +18,17 @@ body {
     padding-right: 2rem;
 }
 
+h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
 .title {
     font-family: "Chopsic";
     color: white;
     background-color: black;
-    font-size: 7.5vw;
+    font-size: 5vw;
     text-align: center;
     padding-left: 10px;
     padding-right: 15px;
@@ -53,4 +59,21 @@ body {
 
 .dark-mode {
     background-color: transparent;
+}
+
+/*Web page change transition*/
+
+.transition1 {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    bottom: 0;
+    z-index: 101;
+    background-color: grey;
+    transition: 0.5s ease-out;
+}
+
+.transition1.is-active {
+    left: 0px;
 }

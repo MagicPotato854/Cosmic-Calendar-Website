@@ -1,22 +1,7 @@
 /*About us*/
+
 .jamsz {
     margin: auto;
     width: 50vw;
     border-radius: 1em; 
-}
-
-.mission-statement {
-    text-align: center;
-}
-
-.mission-statement-text {
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(5, 15, 69);
-    background-color: rgb(93, 93, 93, 0.4);
-    font-size: 1vw;
-    text-align: center;
-    margin-top: 1%;
-    padding-left: 10px;
-    padding-right: 15px;
-    border-radius: 1em;
 }
