@@ -54,19 +54,42 @@ body {
 
 /*About us*/
 
-.title {
+#about-us-title {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
-.info {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+#info {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(5, 15, 69);
+    background-color: rgba(129, 128, 128, 0.4);
+    font-size: 1vw;
     text-align: center;
+    margin-top: 1%;
+    padding-left: 10px;
+    padding-right: 15px;
+    border-radius: 1em;
 
 }
-.jamsz {
+#jamsz {
     margin: auto;
-    width: 85vw;
-    border-radius: 1em;   
+    width: 50vw;
+    border-radius: 1em; 
+}
+
+#mission-statement {
+    text-align: center;
+}
+
+#mission-statement-text {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(5, 15, 69);
+    background-color: rgb(93, 93, 93, 0.4);
+    font-size: 1vw;
+    text-align: center;
+    margin-top: 1%;
+    padding-left: 10px;
+    padding-right: 15px;
+    border-radius: 1em;
 }
 
 #Title {
