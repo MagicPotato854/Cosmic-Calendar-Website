@@ -28,7 +28,7 @@ h2 {
     font-family: "Chopsic";
     color: white;
     background-color: black;
-    font-size: 5vw;
+    font-size: 4vw;
     text-align: center;
     padding-left: 10px;
     padding-right: 15px;
@@ -76,4 +76,26 @@ h2 {
 
 .transition1.is-active {
     left: 0px;
+}
+
+/*Navigation Menu CSS*/
+
+.menu {
+    height: 10%;
+    aspect-ratio: 1;
+    position: absolute;
+}
+
+.hamburger {
+    background-color: white;
+    vertical-align: middle;
+    filter: invert(100);
+    padding: .5rem;
+    border-radius: 10em;
+    transition: 500ms;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+    filter: invert(0);
 }
