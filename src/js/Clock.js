@@ -10,7 +10,7 @@ let id = setInterval(animate, 10);
 
 const clocks = [];
 
-class clock {
+class speedClock {
   
   constructor(hours, offset, parentId) {
     
@@ -158,7 +158,6 @@ function analog(){
 function digital(){
   
   let digital = document.getElementById("digital");
-  //let military = document.getElementById("military");
   
   let hour = time.getHours() % 12;
   if(hour == 0) hour = 12;
@@ -177,7 +176,6 @@ function digital(){
   if(second < 10) second = "0" + second;
   
   digital.innerHTML = hour + ":" + minute + ":" + second + " " + meridiem;
-  //military.innerHTML = mHour + ":" + minute + ":" + second;
   
 }
 
