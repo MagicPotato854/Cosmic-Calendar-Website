@@ -181,6 +181,8 @@ body {
     width: 40%;
     align-items: center;
     gap: 1rem;
+    text-align: center;
+    
 }
 
 img {
@@ -224,6 +226,7 @@ img {
     width: 19%;
 }
 
-#planets > button{
-
+#planets > div > img{
+    margin-left: auto;
+    margin-right: auto;
 }
