@@ -1,3 +1,7 @@
+/*
+ROOT STYLESHEET
+*/
+
 /*Define Font Families*/
 
 @font-face {
@@ -14,13 +18,18 @@ body {
     padding-right: 2rem;
 }
 
-#title {
+h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.title {
     font-family: "Chopsic";
     color: white;
     background-color: black;
-    font-size: 7.5vw;
+    font-size: 5vw;
     text-align: center;
-    margin-top: -5%;
     padding-left: 10px;
     padding-right: 15px;
     border-radius: 1em;
@@ -42,62 +51,11 @@ body {
     align-self: center;
 }
 
-#dark-mode {
-    background-color: transparent;
-
-}
-
-#info {
+.info {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-indent: 2em;
     font-size: 1.5rem;
 }
-
-/*About us*/
-
-#about-us-title {
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-}
-.info {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(5, 15, 69);
-    background-color: rgba(129, 128, 128, 0.4);
-    font-size: 1vw;
-    text-align: center;
-    margin-top: 1%;
-    padding-left: 10px;
-    padding-right: 15px;
-    border-radius: 1em;
-
-}
-#jamsz {
-    margin: auto;
-    width: 50vw;
-    border-radius: 1em; 
-}
-
-#mission-statement {
-    text-align: center;
-}
-
-#mission-statement-text {
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(5, 15, 69);
-    background-color: rgb(93, 93, 93, 0.4);
-    font-size: 1vw;
-    text-align: center;
-    margin-top: 1%;
-    padding-left: 10px;
-    padding-right: 15px;
-    border-radius: 1em;
-}
-
-#Title {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-/*Planet info*/
 
 /* Clock */
 
@@ -212,7 +170,7 @@ img {
 
 .jupiter > img {
     width: 20%;
-}
+
 
 .saturn > img {
     width: 25%;
@@ -229,4 +187,18 @@ img {
 #planets > div > img{
     margin-left: auto;
     margin-right: auto;
+
+.transition1 {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        bottom: 0;
+        z-index: 101;
+        background-color: grey;
+        transition: 0.5s ease-out;
+}
+    
+.transition1.is-active {
+        left: 0px;
 }
