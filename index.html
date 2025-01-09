@@ -7,7 +7,7 @@
     <meta name="description" content="What a lovely website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="src/css/styles.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="src/css/index.css">
 </head>
 
 <body>
@@ -15,12 +15,11 @@
     <div class="transition transition1 is-active"></div>
     -->
 
-    
+    <div class="menu">
+        <img src="/src/assets/img/Hamburger_icon.svg" alt="Menu icon" class="hamburger">
+    </div>
 
     <div class="title">
-        <div class="menu">
-            <img src="/src/assets/img/Hamburger_icon.svg" alt="Menu icon" class="hamburger">
-        </div>
         Cosmic Calendar
     </div>
 
@@ -35,6 +34,40 @@
             impedit? Laborum praesentium numquam voluptate, cum, aliquid harum vel velit excepturi modi temporibus, sit
             neque tenetur enim dignissimos!</p>
     </div>
+
+    <script src="src/js/ConvertForm.js" async defer></script>
+    <h2 class="timeconverter">Time Converter</h2>
+    <form action="https://example.com" class="convertform">
+        <button type="submit" class="calc">Calculate</button>
+        <div class="dropdown-container">
+            <div>
+                <select name="planet1" id="planet1">
+                    <option value="mercury">Mercury</option>
+                    <option value="venus">Venus</option>
+                    <option value="earth" selected="true">Earth</option>
+                    <option value="mars" disabled="true">Mars</option>
+                    <option value="jupiter">Jupiter</option>
+                    <option value="saturn">Saturn</option>
+                    <option value="uranus">Uranus</option>
+                    <option value="neptune">Neptune</option>
+                </select>
+                <img src="src/assets/planet pictures/earth.png" alt="Earth" id="planetpic1">
+            </div>
+            <div>
+                <select name="planet2" id="planet2">
+                    <option value="mercury">Mercury</option>
+                    <option value="venus">Venus</option>
+                    <option value="earth" disabled="true">Earth</option>
+                    <option value="mars" selected="true">Mars</option>
+                    <option value="jupiter">Jupiter</option>
+                    <option value="saturn">Saturn</option>
+                    <option value="uranus">Uranus</option>
+                    <option value="neptune">Neptune</option>
+                </select>
+                <img src="src/assets/planet pictures/earth.png" alt="Earth" id="planetpic2">
+            </div>
+        </div>
+    </form>
 
     <div class="bottom-bar">
         <span>stuff</span>

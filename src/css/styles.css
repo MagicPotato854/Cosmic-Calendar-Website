@@ -43,7 +43,7 @@ h2 {
     background-color: #0e0c31;
     color: white;
     height: 5%;
-    position: absolute;
+    position: fixed;
     bottom: 0.8em;
     right: 1em;
     left: 1em;
@@ -81,16 +81,15 @@ h2 {
 /*Navigation Menu CSS*/
 
 .menu {
-    height: 10%;
-    aspect-ratio: 1;
-    position: absolute;
+    position: fixed;
+    margin: calc(1vw - 8px) 0px 0px calc(1vw - 40px);
 }
 
 .hamburger {
     background-color: white;
-    vertical-align: middle;
     filter: invert(100);
-    padding: .5rem;
+    padding: .5em;
+    width: 30px;
     border-radius: 10em;
     transition: 500ms;
 }
