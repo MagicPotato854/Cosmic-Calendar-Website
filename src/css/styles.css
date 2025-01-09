@@ -69,7 +69,7 @@ h2 {
     top: 2em;
     left: calc(50% - 16em);
     background-color: rgb(224, 224, 224);
-  }
+}
   
   .second {
     width: 28em;
@@ -79,7 +79,7 @@ h2 {
     top: 18.125em;
     left: calc(50% - 14em);
     transform: rotate(-90deg);
-  }
+}
   
   .minute {
     width: 28em;
@@ -89,7 +89,7 @@ h2 {
     top: 18.125em;
     left: calc(50% - 14em);
     transform: rotate(-90deg);
-  }
+}
   
   .hour {
     width: 20em;
@@ -99,7 +99,7 @@ h2 {
     top: 18.125em;
     left: calc(50% - 10em);
     transform: rotate(-90deg);
-  }
+}
   
   .pin {
     width: 1em;
@@ -109,7 +109,7 @@ h2 {
     top: 17.75em;
     border-radius: 0.5em;
     background-color: rgb(64, 64, 64);
-  }
+}
   
   .digital {
     background-color: rgb(64, 64, 64);
@@ -125,68 +125,7 @@ h2 {
     width: 8em;
     position: relative;
     top: 24em;
-  }
-
-
-
-
-/*planet history*/
-
-  #planets {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 40%;
-    align-items: center;
-    gap: 1rem;
-    text-align: center;
-    
 }
-
-img {
-    display: block;
-    margin: 1rem 0;
-}
-
-.sun > img {
-    width: 30%;
-}
-
-.mercury > img {
-    width: 5%;
-}
-
-.venus > img {
-    width: 15%;
-}
-
-.earth > img {
-    width: 16%;
-}
-
-.mars > img {
-    width: 8%;
-}
-
-.jupiter > img {
-    width: 20%;
-
-
-.saturn > img {
-    width: 25%;
-}
-
-.uranus > img {
-    width: 20%;
-}
-
-.neptune > img {
-    width: 19%;
-}
-
-#planets > div > img{
-    margin-left: auto;
-    margin-right: auto;
 
 .transition1 {
         position: fixed;
