@@ -5,160 +5,307 @@ ROOT STYLESHEET
 /*Define Font Families*/
 
 @font-face {
-    font-family: "Chopsic";
-    src: url('../assets/fonts/Chopsic-K6Dp.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Chopsic";
+  src: url("../assets/fonts/Chopsic-K6Dp.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /*Font Styles*/
 
 body {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-indent: 2em;
+  font-size: 1.5rem;
 }
 
 h2 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: bold;
-    font-size: 3rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.center-text {
+  text-align: center;
 }
 
 .title {
-    font-family: "Chopsic";
-    color: white;
-    background-color: black;
-    font-size: 4vw;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 15px;
-    border-radius: 1em;
-    box-shadow: 10px 10px 15px 0px gray;
+  font-family: "Chopsic";
+  color: white;
+  background-color: black;
+  font-size: 4vw;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 15px;
+  border-radius: 1em;
+  box-shadow: 10px 10px 15px 0px gray;
 }
 
 .bottom-bar {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #0e0c31;
-    color: white;
-    height: 5%;
-    position: fixed;
-    bottom: 0.8em;
-    right: 1em;
-    left: 1em;
-    width: calc(100% - 2em);
-    align-self: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #0e0c31;
+  color: white;
+  height: 5%;
+  position: fixed;
+  bottom: 0.8em;
+  right: 1em;
+  left: 1em;
+  width: calc(100% - 2em);
+  align-self: center;
 }
 
 .info {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-indent: 2em;
-    font-size: 1.5rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-indent: 2em;
+  font-size: 1.5rem;
 }
 
 /* Clock */
 
 .face {
-    width: 32em;
-    height: 32em;
-    border-radius: 16em;
-    border-style: solid;
-    border-width: 0.25em;
-    position: absolute;
-    top: 2em;
-    left: calc(50% - 16em);
-    background-color: rgb(224, 224, 224);
+  width: 32em;
+  height: 32em;
+  border-radius: 16em;
+  border-style: solid;
+  border-width: 0.25em;
+  position: absolute;
+  top: 2em;
+  left: calc(50% - 16em);
+  background-color: rgb(224, 224, 224);
 }
-  
-  .second {
-    width: 28em;
-    height: 0.25em;
-    background-image: conic-gradient(#FF0000 0deg, #FF0000 180deg, rgba(0, 0, 0, 0) 180deg);
-    position: absolute;
-    top: 18.125em;
-    left: calc(50% - 14em);
-    transform: rotate(-90deg);
+
+.second {
+  width: 28em;
+  height: 0.25em;
+  background-image: conic-gradient(
+    #ff0000 0deg,
+    #ff0000 180deg,
+    rgba(0, 0, 0, 0) 180deg
+  );
+  position: absolute;
+  top: 18.125em;
+  left: calc(50% - 14em);
+  transform: rotate(-90deg);
 }
-  
-  .minute {
-    width: 28em;
-    height: 0.25em;
-    background-image: conic-gradient(#000000 0deg, #000000 180deg, rgba(0, 0, 0, 0) 180deg);
-    position: absolute;
-    top: 18.125em;
-    left: calc(50% - 14em);
-    transform: rotate(-90deg);
+
+.minute {
+  width: 28em;
+  height: 0.25em;
+  background-image: conic-gradient(
+    #000000 0deg,
+    #000000 180deg,
+    rgba(0, 0, 0, 0) 180deg
+  );
+  position: absolute;
+  top: 18.125em;
+  left: calc(50% - 14em);
+  transform: rotate(-90deg);
 }
-  
-  .hour {
-    width: 20em;
-    height: 0.25em;
-    background-image: conic-gradient(#000000 0deg, #000000 180deg, rgba(0, 0, 0, 0) 180deg);
-    position: absolute;
-    top: 18.125em;
-    left: calc(50% - 10em);
-    transform: rotate(-90deg);
+
+.hour {
+  width: 20em;
+  height: 0.25em;
+  background-image: conic-gradient(
+    #000000 0deg,
+    #000000 180deg,
+    rgba(0, 0, 0, 0) 180deg
+  );
+  position: absolute;
+  top: 18.125em;
+  left: calc(50% - 10em);
+  transform: rotate(-90deg);
 }
-  
-  .pin {
-    width: 1em;
-    height: 1em;
-    position: absolute;
-    left: calc(50% - 0.5em);
-    top: 17.75em;
-    border-radius: 0.5em;
-    background-color: rgb(64, 64, 64);
+
+.pin {
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  left: calc(50% - 0.5em);
+  top: 17.75em;
+  border-radius: 0.5em;
+  background-color: rgb(64, 64, 64);
 }
-  
-  .digital {
-    background-color: rgb(64, 64, 64);
-    color: rgb(0, 255, 0);
-    font-family: "Lucida Console";
-    font-size: 1.5em;
-    font-weight: bold;
-    border-radius: 1em;
-    text-align: center;
-    padding: 1em;
-    margin: auto;
-    margin-top: 1em;
-    width: 8em;
-    position: relative;
-    top: 24em;
+
+.digital {
+  background-color: rgb(64, 64, 64);
+  color: rgb(0, 255, 0);
+  font-family: "Lucida Console";
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 1em;
+  text-align: center;
+  padding: 1em;
+  margin: auto;
+  margin-top: 1em;
+  width: 8em;
+  position: relative;
+  top: 24em;
 }
 
 .transition1 {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        bottom: 0;
-        z-index: 101;
-        background-color: grey;
-        transition: 0.5s ease-out;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  bottom: 0;
+  z-index: 101;
+  background-color: grey;
+  transition: 0.5s ease-out;
 }
-    
+
 .transition1.is-active {
-    left: 0px;
+  left: 0px;
 }
 
 /*Navigation Menu CSS*/
 
-.menu {
-    position: fixed;
-    margin: calc(1vw - 8px) 0px 0px calc(1vw - 40px);
+.navbar {
+  position: fixed;
+  width: 46px;
+  margin: calc(1vw - 8px) 0px 0px calc(1vw - 40px);
+  transition:
+    width 1s ease-in-out,
+    max-width 1s ease-in-out,
+    background-color 0s ease-in-out;
+  max-width: 46px;
+  overflow: hidden;
+  background-color: transparent;
+  border-radius: 10em;
+}
+
+.navbar.menu-active {
+  width: fit-content;
+  max-width: 100vw;
+  background-color: #000000;
+  border-radius: 10em;
+  
 }
 
 .hamburger {
-    background-color: white;
-    filter: invert(100);
-    padding: .5em;
-    width: 30px;
-    border-radius: 10em;
-    transition: 500ms;
+  position: absolute;
+  background-color: black;
+  width: 46px;
+  border-radius: 10em;
+  cursor: pointer;
+  z-index: 2;
+
+  /*Ham to Arrow transition stuff*/
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #fff;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+.ham .top {
+  stroke-dasharray: 40 82;
+}
+
+.ham .bottom {
+  stroke-dasharray: 40 82;
+}
+
+.ham.active .top {
+  stroke-dasharray: 14 82;
+  stroke-dashoffset: -72px;
+}
+
+.ham.active .bottom {
+  stroke-dasharray: 14 82;
+  stroke-dashoffset: -72px;
 }
 
 .hamburger:hover {
-    cursor: pointer;
-    filter: invert(0);
+  cursor: pointer;
+  filter: invert(100);
 }
+
+.menu {
+  display: flex;
+  list-style: none;
+  text-wrap: nowrap;
+  text-overflow: clip;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  gap: 1rem;
+  margin: 14px;
+  margin-left: 60px;
+  padding: 0;
+  z-index: 1;
+  transition: transform 1s ease-in-out, visibility 0s;
+  transform:translateX(-100%);
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  transition: 500ms;
+  color: #00bcd4;
+}
+
+.menu.active {
+  transition: transform 1s ease-in-out, visibility 0s;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Responsive styles 
+@media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  
+    .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 10px;
+      background-color: #333;
+      width: 150px;
+      border-radius: 5px;
+      padding: 0.5rem;
+    }
+  
+    .menu.active {
+      display: flex;
+    }
+  
+    .menu li {
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+  }
+    
+  */

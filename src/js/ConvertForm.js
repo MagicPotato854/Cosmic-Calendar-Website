@@ -1,7 +1,7 @@
 
 // Disable dropdowns in the planet comparisions
-const dropdown1 = document.getElementById('planet1');
-const dropdown2 = document.getElementById('planet2');
+const planet1 = document.getElementById('planet1');
+const planet2 = document.getElementById('planet2');
 
 // Function to update dropdown options
 function updateDropdowns(changedDropdown, otherDropdown) {
@@ -21,12 +21,10 @@ function updateDropdowns(changedDropdown, otherDropdown) {
 }
 
 // Add event listeners to both dropdowns
-dropdown1.addEventListener('change', () => updateDropdowns(dropdown1, dropdown2));
-dropdown2.addEventListener('change', () => updateDropdowns(dropdown2, dropdown1));
+planet1.addEventListener('change', () => updateDropdowns(planet1, planet2));
+planet2.addEventListener('change', () => updateDropdowns(planet2, planet1));
 
 // Get the select elements and image elements
-const planet1Select = document.getElementById('planet1');
-const planet2Select = document.getElementById('planet2');
 const planet1Image = document.getElementById('planetpic1');
 const planet2Image = document.getElementById('planetpic2');
 
@@ -38,14 +36,26 @@ function updatePlanetImage(selectElement, imageElement) {
 }
 
 // Add event listeners to update images when a planet is selected
-planet1Select.addEventListener('change', function() {
-    updatePlanetImage(planet1Select, planet1Image);
+planet1.addEventListener('change', function() {
+    updatePlanetImage(planet1, planet1Image);
 });
 
-planet2Select.addEventListener('change', function() {
-    updatePlanetImage(planet2Select, planet2Image);
+planet2.addEventListener('change', function() {
+    updatePlanetImage(planet2, planet2Image);
 });
 
 // Initially set the images based on the default selected options
-updatePlanetImage(planet1Select, planet1Image);
-updatePlanetImage(planet2Select, planet2Image);
+updatePlanetImage(planet1, planet1Image);
+updatePlanetImage(planet2, planet2Image);
+
+
+// Results Window Calculations
+
+// Get Form Elements
+const calcBtn = document.getElementById('calcBtn');
+const result = document.getElementById('result');
+
+// Add an event listener to the button
+calcBtn.addEventListener("click", () => {
+    result.innerHTML = `${planet1.value} and ${planet2.value}`;
+});
