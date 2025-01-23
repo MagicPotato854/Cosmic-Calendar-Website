@@ -53,9 +53,64 @@ updatePlanetImage(planet2, planet2Image);
 
 // Get Form Elements
 const calcBtn = document.getElementById('calcBtn');
-const result = document.getElementById('result');
+const result1 = document.getElementById('result1');
+const result2 = document.getElementById('result2');
+
+class Planet {
+    constructor(name, len_year, len_day) {
+        this.name = name;
+        this.len_year = len_year;
+        this.len_day = len_day;
+        this.days_in_year = len_year / len_day;
+    }
+
+    convert_in(hours) {
+        let years = Math.floor(hours / this.len_year);
+        let hours = hours - (years * this.len_year);
+        let days = Math.floor(hours / this.len_day);
+        hours = hours - (days * self.len_day);
+        return [years, days, hours];
+    }
+
+    convert_to_hours(local_time) {
+        return local_time[0] * this.len_year + local_time[1] * this.len_day + local_time[2];
+    }
+
+    convert_to_planet(time, planet) {
+        return  planet.convert_in(this.convert_to_hours(time));
+    }
+
+    print_time(hours) {
+        let local_time = this.convert_in(hours);
+        return `${this.name}'s Date: Year ${1 + Math.floor(local_time[0])}, day ${1 + Math.floor(local_time[1])}, ${Math.floor(local_time[2])}:${Math.floor(local_time[2] % 1 * 60)}`;
+    }
+}
+
+Earth = new Planet("Earth", 8765.813, 24);
+Mars = new Planet("Mars", 16487.4118608, 24.6599);
+Saturn = new Planet("Saturn", 258240.845, 10.55);
+test_time = 17739855.401;
+
+const planets = {
+    "earth": Earth,
+    "mars": Mars,
+    "saturn": Saturn
+};
 
 // Add an event listener to the button
 calcBtn.addEventListener("click", () => {
-    result.innerHTML = `${planet1.value} and ${planet2.value}`;
+    result1.innerHTML = `${planets[planet1.value].print_time(test_time)}.`;
+    result2.innerHTML = `${planets[planet2.value].print_time(test_time)}.`;
 });
+
+// Calculate distance between two planets
+/*
+async function calcDistance() {
+    const dataString = document.getElementById("dateInput").value;
+    const secs = dateToHoursSinceEpoch(dataString) * 3600;
+
+    const distResponse = await fetch(`http://localhost:5000/dist?date=${secs}?p1=${planet1}?p2=sun?units=l`);
+    if (!distResponse.ok) throw new Error(`HTTP error! status: ${marsResponse.status}`);
+    const distData = await distResponse.json()
+}
+*/

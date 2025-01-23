@@ -48,21 +48,6 @@ h2 {
   box-shadow: 10px 10px 15px 0px gray;
 }
 
-.bottom-bar {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #0e0c31;
-  color: white;
-  height: 5%;
-  position: fixed;
-  bottom: 0.8em;
-  right: 1em;
-  left: 1em;
-  width: calc(100% - 2em);
-  align-self: center;
-}
-
 .info {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -197,7 +182,7 @@ h2 {
   width: 46px;
   border-radius: 10em;
   cursor: pointer;
-  z-index: 2;
+  z-index: 202;
 
   /*Ham to Arrow transition stuff*/
   -webkit-tap-highlight-color: transparent;
@@ -257,7 +242,7 @@ h2 {
   margin: 14px;
   margin-left: 60px;
   padding: 0;
-  z-index: 1;
+  z-index: 201;
   transition: transform 1s ease-in-out, visibility 0s;
   transform:translateX(-100%);
   overflow: hidden;
@@ -279,33 +264,3 @@ h2 {
   transform: translateX(0);
   visibility: visible;
 }
-
-/* Responsive styles 
-@media (max-width: 768px) {
-    .hamburger {
-      display: flex;
-    }
-  
-    .menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 50px;
-      right: 10px;
-      background-color: #333;
-      width: 150px;
-      border-radius: 5px;
-      padding: 0.5rem;
-    }
-  
-    .menu.active {
-      display: flex;
-    }
-  
-    .menu li {
-      margin: 0.5rem 0;
-      text-align: center;
-    }
-  }
-    
-  */
