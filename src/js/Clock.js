@@ -41,16 +41,25 @@ class clock {
     this.parent.appendChild(this.hourHand);
     
     this.hourHandPoint = document.createElement('div');
-    this.hourHandPoint.className = 'hourPoint';
+    this.hourHandPoint.className = 'point';
     this.hourHand.appendChild(this.hourHandPoint);
     
     this.minuteHand = document.createElement('div');
     this.minuteHand.className = 'minute';
     this.parent.appendChild(this.minuteHand);
     
+    this.minuteHandPoint = document.createElement('div');
+    this.minuteHandPoint.className = 'point';
+    this.minuteHand.appendChild(this.minuteHandPoint);
+    
     this.secondHand = document.createElement('div');
     this.secondHand.className = 'second';
     this.parent.appendChild(this.secondHand);
+    
+    this.secondHandPoint = document.createElement('div');
+    this.secondHandPoint.className = 'point';
+    this.secondHand.appendChild(this.secondHandPoint);
+    this.secondHandPoint.style.backgroundColor = '#FF0000'
     
     this.pin = document.createElement('div');
     this.pin.className = 'pin';

@@ -42,13 +42,13 @@
   transform: rotate(-90deg);
 }
 
-.hourPoint {
+.point {
   width: 0.25em;
   height: 0.25em;
   background-color: #000000;
   position: absolute;
   right: -0.125em;
-  transform: rotate(45deg);
+  transform: scale(0.707, 0.707) rotate(45deg);
 }
 
 .pin {
