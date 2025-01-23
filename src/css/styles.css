@@ -28,7 +28,7 @@ h2 {
     font-family: "Chopsic";
     color: white;
     background-color: black;
-    font-size: 5vw;
+    font-size: 4vw;
     text-align: center;
     padding-left: 10px;
     padding-right: 15px;
@@ -43,7 +43,7 @@ h2 {
     background-color: #0e0c31;
     color: white;
     height: 5%;
-    position: absolute;
+    position: fixed;
     bottom: 0.8em;
     right: 1em;
     left: 1em;
@@ -57,23 +57,108 @@ h2 {
     font-size: 1.5rem;
 }
 
-.dark-mode {
-    background-color: transparent;
-}
+/* Clock */
 
-/*Web page change transition*/
+.face {
+    width: 32em;
+    height: 32em;
+    border-radius: 16em;
+    border-style: solid;
+    border-width: 0.25em;
+    position: absolute;
+    top: 2em;
+    left: calc(50% - 16em);
+    background-color: rgb(224, 224, 224);
+}
+  
+  .second {
+    width: 28em;
+    height: 0.25em;
+    background-image: conic-gradient(#FF0000 0deg, #FF0000 180deg, rgba(0, 0, 0, 0) 180deg);
+    position: absolute;
+    top: 18.125em;
+    left: calc(50% - 14em);
+    transform: rotate(-90deg);
+}
+  
+  .minute {
+    width: 28em;
+    height: 0.25em;
+    background-image: conic-gradient(#000000 0deg, #000000 180deg, rgba(0, 0, 0, 0) 180deg);
+    position: absolute;
+    top: 18.125em;
+    left: calc(50% - 14em);
+    transform: rotate(-90deg);
+}
+  
+  .hour {
+    width: 20em;
+    height: 0.25em;
+    background-image: conic-gradient(#000000 0deg, #000000 180deg, rgba(0, 0, 0, 0) 180deg);
+    position: absolute;
+    top: 18.125em;
+    left: calc(50% - 10em);
+    transform: rotate(-90deg);
+}
+  
+  .pin {
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    left: calc(50% - 0.5em);
+    top: 17.75em;
+    border-radius: 0.5em;
+    background-color: rgb(64, 64, 64);
+}
+  
+  .digital {
+    background-color: rgb(64, 64, 64);
+    color: rgb(0, 255, 0);
+    font-family: "Lucida Console";
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 1em;
+    text-align: center;
+    padding: 1em;
+    margin: auto;
+    margin-top: 1em;
+    width: 8em;
+    position: relative;
+    top: 24em;
+}
 
 .transition1 {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    bottom: 0;
-    z-index: 101;
-    background-color: grey;
-    transition: 0.5s ease-out;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        bottom: 0;
+        z-index: 101;
+        background-color: grey;
+        transition: 0.5s ease-out;
 }
-
+    
 .transition1.is-active {
     left: 0px;
+}
+
+/*Navigation Menu CSS*/
+
+.menu {
+    position: fixed;
+    margin: calc(1vw - 8px) 0px 0px calc(1vw - 40px);
+}
+
+.hamburger {
+    background-color: white;
+    filter: invert(100);
+    padding: .5em;
+    width: 30px;
+    border-radius: 10em;
+    transition: 500ms;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+    filter: invert(0);
 }

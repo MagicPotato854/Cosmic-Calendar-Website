@@ -1,52 +1,18 @@
 /*planet history*/
 
-#planets {
+img {
+    margin: 1rem 0px 1rem 0px;
+}
+
+.planets {
     display: flex;
     flex-direction: column;
+    width: 20%;
     align-items: flex-start;
-    width: 40%;
     align-items: center;
-    margin-left: -15%;
-    gap: 1rem;
+    text-align: center;
 }
 
-img {
-    display: block;
-    margin: 1rem 0;
-}
-
-.sun {
-    width: 30%;
-}
-
-.mercury {
-    width: 5%;
-}
-
-.venus {
-    width: 15%;
-}
-
-.earth {
-    width: 16%;
-}
-
-.mars {
-    width: 8%;
-}
-
-.jupiter {
-    width: 20%;
-}
-
-.saturn {
-    width: 25%;
-}
-
-.uranus {
-    width: 20%;
-}
-
-.neptune {
-    width: 19%;
+.planets div img {
+    width: 20vw;
 }

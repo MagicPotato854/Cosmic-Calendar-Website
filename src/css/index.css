@@ -1,0 +1,49 @@
+/* Center the heading and form elements */
+.convertform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+/* Style the button */
+.calc {
+    margin: 15px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Layout for the dropdowns */
+.dropdown-container {
+    display: flex;
+    justify-content: space-around; /* Spread dropdowns equally */
+    width: 100%; /* Ensure dropdowns take full width */
+    gap: 20px;
+}
+
+/* Ensure each dropdown is aligned properly */
+.dropdown-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the images */
+#planetpic1, #planetpic2 {
+    width: 25vw;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    /* Stack the dropdowns in one column */
+    .dropdown-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Adjust the gap for stacked items */
+    }
+
+    #planetpic1, #planetpic2 {
+        width: 60vw; /* Adjust image size for small screens */
+    }
+}
