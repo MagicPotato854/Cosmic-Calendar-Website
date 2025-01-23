@@ -6,13 +6,13 @@ const start = Date.now();
 
 let id = setInterval(animate, 10);
 
-// Class
+// Classes
 
 const clocks = [];
 
 class clock {
   
-  constructor(hours, offset, parentId) {
+  constructor(hours, offset, parentId, trim /*Speed vs Trim*/) {
     
     // Vars
     
@@ -21,7 +21,12 @@ class clock {
     this.time = new Date();
     
     this.mult = 24 / hours;
-    this.offset = offset;
+    if(trim) this.mult = 1;
+    
+    this.offset = offset
+    
+    this.hourMult = 1;
+    if(!trim) this.hourMult = 24 / hours;
     
     // Add HTML
     
@@ -35,13 +40,26 @@ class clock {
     this.hourHand.className = 'hour';
     this.parent.appendChild(this.hourHand);
     
+    this.hourHandPoint = document.createElement('div');
+    this.hourHandPoint.className = 'point';
+    this.hourHand.appendChild(this.hourHandPoint);
+    
     this.minuteHand = document.createElement('div');
     this.minuteHand.className = 'minute';
     this.parent.appendChild(this.minuteHand);
     
+    this.minuteHandPoint = document.createElement('div');
+    this.minuteHandPoint.className = 'point';
+    this.minuteHand.appendChild(this.minuteHandPoint);
+    
     this.secondHand = document.createElement('div');
     this.secondHand.className = 'second';
     this.parent.appendChild(this.secondHand);
+    
+    this.secondHandPoint = document.createElement('div');
+    this.secondHandPoint.className = 'point';
+    this.secondHand.appendChild(this.secondHandPoint);
+    this.secondHandPoint.style.backgroundColor = '#FF0000'
     
     this.pin = document.createElement('div');
     this.pin.className = 'pin';
@@ -49,10 +67,15 @@ class clock {
     
     this.digitalFace = document.createElement('div');
     this.digitalFace.className = 'digital';
-    this.digitalFace.innerHTML = '##:##:## XX';
+    this.digitalFace.innerText = '##:##:## XX';
     this.parent.appendChild(this.digitalFace);
     
-    generateFace(15, 0.5, this.face);
+    if(trim) {
+      generateFace(15, 0, 12, 'em', this.face, 5);
+      generateFace(12, 3, hours, 'em', this.face, 1);
+    }
+    
+    else generateFace(15, 0, 12, 'em', this.face);
     
     // Push
     
@@ -78,7 +101,6 @@ class clock {
   
   digital(time) {
     
-    let digital = document.getElementById("digital");
     let hour = time.getHours() % 12;
     if(hour == 0) hour = 12;
     if(hour < 10) hour = "0" + hour;
@@ -99,6 +121,7 @@ class clock {
   animate() {
     
     if(this.update) {
+      // Will be replaced with a translator function:
       this.time.setTime((new Date().getTime() * this.mult) + this.offset);
     }
     
@@ -111,23 +134,30 @@ class clock {
 
 // Functions
 
-function generateFace(radius, offset, face){
+function generateFace(radius, offset, hours, unit, face, mult = 1){
   
-  let left = face.style.left;
-  let right = face.style.right;
+  while(hours > 24) {
+    hours = hours / 24;
+    mult = mult * 24;
+  }
   
-  for(let i = 0; i < 60; i++){
+  for(let i = 0; i < 5 * hours; i++){
     
-    let posX = ((Math.cos((Math.PI / 30) * (i - 3) ) + 1) * (radius)) + offset;
-    let posY = ((Math.sin((Math.PI / 30) * (i - 3) ) + 1) * (radius)) + offset;
+    let ang = ((i / (5 * hours) ) * (2 * Math.PI)) - (Math.PI / 2);
+    
+    let posX = (Math.cos(ang) + 1) * (radius)
+    let posY = (Math.sin(ang) + 1) * (radius)
     
     let char = '&#x25AA';
     
-    if((i + 12) % 5 == 0) char = ((i + 12) / 5) % 12;
-    if(char == 0) char = 12;
+    if(i % 5 < 0.01) char = ((i / 5) % hours) * mult;
+    if(i == 0) {
+      if(char - Math.round(char) > 0.01) char = 0;
+      else char = Math.round(hours * mult);
+    }
     
     let tick = document.createElement('div');
-    tick.style = 'position: absolute; left:' + left + '; top: ' + top + '; transform: translate(' + posX + 'em,' + posY + 'em);'
+    tick.style = 'position: absolute; width: 2em; height: 2em; text-align: center; line-height: 2em; left:' + (posX + offset) + unit + '; top:' + (posY + offset) + unit + ';';
     tick.innerHTML = char;
     face.appendChild(tick);
     
@@ -152,32 +182,6 @@ function analog(){
   secondHand.style.transform = 'rotate(' + secondDeg + 'deg)';
   minuteHand.style.transform = 'rotate(' + minuteDeg + 'deg)';
   hourHand.style.transform = 'rotate(' + hourDeg + 'deg)';
-  
-}
-
-function digital(){
-  
-  let digital = document.getElementById("digital");
-  //let military = document.getElementById("military");
-  
-  let hour = time.getHours() % 12;
-  if(hour == 0) hour = 12;
-  if(hour < 10) hour = "0" + hour;
-  
-  let meridiem = "AM";
-  if(time.getHours() >= 12) meridiem = "PM";
-  
-  let mHour = time.getHours();
-  if(mHour < 10) mHour = "0" + mHour;
-  
-  let minute = time.getMinutes();
-  if(minute < 10) minute = "0" + minute;
-  
-  let second = time.getSeconds();
-  if(second < 10) second = "0" + second;
-  
-  digital.innerHTML = hour + ":" + minute + ":" + second + " " + meridiem;
-  //military.innerHTML = mHour + ":" + minute + ":" + second;
   
 }
 
