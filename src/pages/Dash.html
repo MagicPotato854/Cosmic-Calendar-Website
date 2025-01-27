@@ -34,33 +34,36 @@
   <div class="title">
     Dashboard
   </div>
-
+  
   <div id="link"
     style="text-align: center; font-size: 1.5em; background: rgb(255, 128, 128); position: fixed; width: 25%; right: 1em; bottom: 1em; font-weight: bold;">
     Java Script does not seem to be linked. Most features and some content may be missing.
   </div>
-
+  
   <script src="../js/main.js"></script>
-  <script src="../js/main.js"></script>
-
+  
   <script src="../js/AreFilesLinked.js"></script>
-  <script src="../js/AreFilesLinked.js"></script>
-
+  
   <script src="../js/Clock.js"></script>
-  <script src="../js/Clock.js"></script>
-
-  <div id="clockTest" style="position: relative; height: 40rem;"></div>
-
+  
+  <div id="clockTest" class="clockContainer"></div>
+  
   <script>
-    new clock(24, 0, 'clockTest');
+    const homeClock = new clock(24, 0, 'clockTest', false);
   </script>
-
-  <div id="2" style="position: relative;"></div>
-
+  
+  <div id="speedClockTest" class="clockContainer"></div>
+  
   <script>
-    new clock(240, 0, '2');
+    const speedClockTest = new clock(1, 0, 'speedClockTest', false);
   </script>
-
+  
+  <div id="trimClockTest" class="clockContainer"></div>
+  
+  <script>
+    const trimClockTest = new clock(1408, 0, 'trimClockTest', true);
+  </script>
+  
 </body>
 
 </html>

@@ -22,7 +22,7 @@
   );
   position: absolute;
   top: 18.125em;
-  left: calc(50% - 14em);
+  left: calc(50% - 14em + 0.25em); /*0.25em for face border*/
   transform: rotate(-90deg);
 }
 
@@ -36,7 +36,7 @@
   );
   position: absolute;
   top: 18.125em;
-  left: calc(50% - 14em);
+  left: calc(50% - 14em + 0.25em); /*0.25em for face border*/
   transform: rotate(-90deg);
 }
 
@@ -50,15 +50,24 @@
   );
   position: absolute;
   top: 18.125em;
-  left: calc(50% - 10em);
+  left: calc(50% - 11em + 0.25em); /*0.25em for face border*/
   transform: rotate(-90deg);
+}
+
+.point {
+  width: 0.25em;
+  height: 0.25em;
+  background-color: #000000;
+  position: absolute;
+  right: -0.125em;
+  transform: scale(0.707, 0.707) rotate(45deg);
 }
 
 .pin {
   width: 1em;
   height: 1em;
   position: absolute;
-  left: calc(50% - 0.5em);
+  left: calc(50% - 0.25em); /*0.25em for face border*/
   top: 17.75em;
   border-radius: 0.5em;
   background-color: rgb(64, 64, 64);
@@ -78,4 +87,9 @@
   width: 8em;
   position: relative;
   top: 24em;
+}
+
+.clockContainer {
+  position: relative;
+  height: 40rem;
 }
