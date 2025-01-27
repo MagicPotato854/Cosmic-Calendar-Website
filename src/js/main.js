@@ -17,6 +17,11 @@ const head = document.getElementsByTagName("head");
 
 const body = document.getElementsByTagName("body");
 
+// Navbar constants
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+const navbar = document.querySelector('.navbar');
+
 let timeout;
 
 let testInp = '';
@@ -59,9 +64,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
     "animation-duration: 0.75s;";
 });
 
+// Navbar Responsiveness
 
-
-
+hamburger.addEventListener("click", () => {
+  menu.classList.toggle("active"); // Toggles the menu visibility
+  navbar.classList.toggle("menu-active");
+});
 
 // Transitions
 
