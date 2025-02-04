@@ -36,17 +36,22 @@ function updatePlanetImage(selectElement, imageElement) {
   imageElement.alt = planet.charAt(0).toUpperCase() + planet.slice(1); // Set the alt text to match the planet name
 }
 
-// Add event listeners to update images when a planet is selected
+// Function to update the time conversion
+function updateTimeConversion() {
+  const test_time = new Date().getTime() / 1000 / 3600 + 17_259_900 - 18.9962336123;
+  result1.innerHTML = `${planets[planet1.value].print_time(test_time)}.`;
+  result2.innerHTML = `${planets[planet2.value].print_time(test_time)}.`;
+}
+
+// Add event listeners to update images and time conversion when a planet is selected
 planet1.addEventListener("change", function () {
   updatePlanetImage(planet1, planet1Image);
-  result1.innerHTML = "???";
-  result2.innerHTML = "???";
+  updateTimeConversion();
 });
 
 planet2.addEventListener("change", function () {
   updatePlanetImage(planet2, planet2Image);
-  result1.innerHTML = "???";
-  result2.innerHTML = "???";
+  updateTimeConversion();
 });
 
 // Initially set the images based on the default selected options
@@ -56,7 +61,6 @@ updatePlanetImage(planet2, planet2Image);
 // Results Window Calculations
 
 // Get Form Elements
-const calcBtn = document.getElementById("calcBtn");
 const result1 = document.getElementById("result1");
 const result2 = document.getElementById("result2");
 
@@ -90,6 +94,11 @@ class Planet {
   }
 
   print_time(hours) {
+    if (this.name == "Earth") {
+      const baseDate = new Date('0001-01-01T00:00:00Z');
+      const date = new Date(baseDate.getTime() + hours * 3600 * 1000);
+      return `Earth's Date: ${date.toUTCString()}`;
+    }
     let local_time = this.convert_in(hours);
     let hour = Math.floor(local_time[2]);
     let minute = Math.floor((local_time[2] % 1) * 60);
@@ -124,10 +133,8 @@ const planets = {
 };
 
 // Add an event listener to the button
-calcBtn.addEventListener("click", () => {
-  test_time = new Date().getTime() / 1000 / 3600 + 17_259_900 - 18.9962336123;
-  result1.innerHTML = `${planets[planet1.value].print_time(test_time)}.`;
-  result2.innerHTML = `${planets[planet2.value].print_time(test_time)}.`;
+planet1.addEventListener("change", () => {
+  updateTimeConversion();
 });
 
 // Calculate distance between two planets
