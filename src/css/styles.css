@@ -170,7 +170,7 @@ img {
 
 .jupiter > img {
     width: 20%;
-
+}
 
 .saturn > img {
     width: 25%;
@@ -187,16 +187,6 @@ img {
 #planets > div > img{
     margin-left: auto;
     margin-right: auto;
-
-.transition1 {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        bottom: 0;
-        z-index: 101;
-        background-color: grey;
-        transition: 0.5s ease-out;
 }
     
 .transition1.is-active {

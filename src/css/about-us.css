@@ -6,5 +6,30 @@
     border-radius: 1em; 
 }
 
+.border {
+    border: 1px solid rgb(0, 0, 0);
+    margin: 20px 0;
+}
 
+.photos-left {
+    margin: auto;
+    width: 10vw;
+    border-radius: 1em;
+    position: absolute;
+    left: 1;
+}
 
+.photos-right {
+    margin: 15px 0;
+    width: 10vw;
+    border-radius: 1em;
+    position: absolute;
+    right: 1;
+}
+
+.id-text-left {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+
+}
