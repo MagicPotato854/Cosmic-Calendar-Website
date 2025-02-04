@@ -11,38 +11,56 @@
 </head>
 
 <body>
-  <!--Disabling trasitions for now because they appear broken on some pages
-  <div class="transition transition1 is-active"></div>
-  -->
 
-  <h1 class="title">Dashboard</h1>
+  <div class="navbar" id="navbar">
+    <svg class="hamRotate180 ham hamburger" id="hamburger" viewBox="0 0 100 100" width="80"
+      onclick="this.classList.toggle('active')">
+      <path class="line top"
+        d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+      <path class="line middle" d="m 70,50 h -40" />
+      <path class="line bottom"
+        d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+    </svg>
+    <ul class="menu" id="menu">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="./about-us.html">About Us</a></li>
+      <li><a href="./planet-history.html">Planet History</a></li>
+    </ul>
+  </div>
 
+  <div class="title">
+    Dashboard
+  </div>
+  
   <div id="link"
     style="text-align: center; font-size: 1.5em; background: rgb(255, 128, 128); position: fixed; width: 25%; right: 1em; bottom: 1em; font-weight: bold;">
     Java Script does not seem to be linked. Most features and some content may be missing.
   </div>
-
+  
   <script src="../js/main.js"></script>
-  <script src="../js/main.js"></script>
-
+  
   <script src="../js/AreFilesLinked.js"></script>
-  <script src="../js/AreFilesLinked.js"></script>
-
+  
   <script src="../js/Clock.js"></script>
-  <script src="../js/Clock.js"></script>
-
-  <div id="clockTest" style="position: relative; height: 40rem;"></div>
-
+  
+  <div id="clockTest" class="clockContainer"></div>
+  
   <script>
-    new clock(24, 0, 'clockTest');
+    const homeClock = new clock(24, 0, 'clockTest', false);
   </script>
-
-  <div id="2" style="position: relative;"></div>
-
+  
+  <div id="speedClockTest" class="clockContainer"></div>
+  
   <script>
-    new clock(240, 0, '2');
+    const speedClockTest = new clock(1, 0, 'speedClockTest', false);
   </script>
-
+  
+  <div id="trimClockTest" class="clockContainer"></div>
+  
+  <script>
+    const trimClockTest = new clock(1408, 0, 'trimClockTest', true);
+  </script>
+  
 </body>
 
 </html>

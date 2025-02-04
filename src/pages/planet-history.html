@@ -11,47 +11,71 @@
 </head>
 
 <body>
-    <!--Disabling trasitions for now because they appear broken on some pages
-    <div class="transition transition1 is-active"></div>
-    -->
 
-    <h1 id="title">Planet History</h1>
-    
-    <div id="planets">  
-        <div type='button' class="sun" onclick="alert('Image Button Clicked!')" style="background-color: transparent; border: 1;">
+    <div class="navbar" id="navbar">
+        <svg class="hamRotate180 ham hamburger" id="hamburger" viewBox="0 0 100 100" width="80"
+            onclick="this.classList.toggle('active')">
+            <path class="line top"
+                d="m 30,33 h 40 c 0,0 8.5,-0.68551 8.5,10.375 0,8.292653 -6.122707,9.002293 -8.5,6.625 l -11.071429,-11.071429" />
+            <path class="line middle" d="m 70,50 h -40" />
+            <path class="line bottom"
+                d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
+        </svg>
+        <ul class="menu" id="menu">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="./about-us.html">About Us</a></li>
+            <li><a href="./Dash.html">Dashboard</a></li>
+        </ul>
+    </div>
+
+    <div class="title">
+        Planet History
+    </div>
+
+    <div class="planets">
+        <div type='button' class="sun" onclick="alert('Image Button Clicked!')"
+            style="background-color: transparent; border: 1;">
             <img src="../assets/planet pictures/sun.png" alt="Sun">
         </div>
-        
-        <div type='button' class="mercury" onclick="alert('Image Button Clicked!')" style="background-color: transparent; border: 1; " >
+
+        <div type='button' class="mercury" onclick="alert('Image Button Clicked!')"
+            style="background-color: transparent; border: 1; ">
             <img src="../assets/planet pictures/mercury.png" alt="Mercury">
         </div>
 
-        
-        <div type='button' class="venus" onclick="alert('Image Button Clicked!')" style="background-color: transparent; border: 0;">
+
+        <div type='button' class="venus" onclick="alert('Image Button Clicked!')"
+            style="background-color: transparent; border: 0;">
             <img src="../assets/planet pictures/venus.png" alt="Venus">
         </div>
 
-        <div type='button' class="earth" onclick="alert('Image Button Clicked!')" style="background-color: transparent; border: 0;">
+        <div type='button' class="earth" onclick="alert('Image Button Clicked!')"
+            style="background-color: transparent; border: 0;">
             <img src="../assets/planet pictures/earth.png" alt="Earth">
         </div>
 
-        <div type='button' class="mars" onclick="alert('Image Button Clicked!')" style="background-color: transparent; border: 0;">
+        <div type='button' class="mars" onclick="alert('Image Button Clicked!')"
+            style="background-color: transparent; border: 0;">
             <img src="../assets/planet pictures/mars.png" alt="Mars">
         </div>
 
-        <div type='button' class="jupiter" onclick="alert('Image Button Clicked!')" style="background-color: transparent; border: 0;">
+        <div type='button' class="jupiter" onclick="alert('Image Button Clicked!')"
+            style="background-color: transparent; border: 0;">
             <img src="../assets/planet pictures/jupiter.png" alt="Jupiter">
         </div>
 
-        <div type='button' class="saturn" onclick="alert('Image Button Clicked!')" style="background-color: transparent; border: 0;">
+        <div type='button' class="saturn" onclick="alert('Image Button Clicked!')"
+            style="background-color: transparent; border: 0;">
             <img src="../assets/planet pictures/saturn.png" alt="Saturn">
         </div>
 
-        <div type='button' class="uranus" onclick="alert('Image Button Clicked!')" style="background-color: transparent; border: 0;">
+        <div type='button' class="uranus" onclick="alert('Image Button Clicked!')"
+            style="background-color: transparent; border: 0;">
             <img src="../assets/planet pictures/uranus.png" alt="Uranus">
         </div>
 
-        <div type='button' class="neptune" onclick="alert('Image Button Clicked!')" style="background-color: transparent; border: 0;">
+        <div type='button' class="neptune" onclick="alert('Image Button Clicked!')"
+            style="background-color: transparent; border: 0;">
             <img src="../assets/planet pictures/neptune.png" alt="Neptune">
         </div>
     </div>
