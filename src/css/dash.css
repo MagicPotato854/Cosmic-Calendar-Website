@@ -50,7 +50,7 @@
   );
   position: absolute;
   top: 18.125em;
-  left: calc(50% - 11em + 0.25em); /*0.25em for face border*/
+  left: calc(50% - 10em + 0.25em); /*0.25em for face border*/
   transform: rotate(-90deg);
 }
 
