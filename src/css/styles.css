@@ -22,7 +22,6 @@ p {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-indent: 2em;
-  font-size: 1.5rem;
 }
 
 h2 {
@@ -40,34 +39,20 @@ h2 {
   font-family: "Chopsic";
   color: white;
   background-color: black;
-  font-size: 4vw;
+  font-size: clamp(50px, 4vw, 100px);
   text-align: center;
   padding-left: 10px;
   padding-right: 15px;
   border-radius: 1em;
   box-shadow: 10px 10px 15px 0px gray;
+  min-height: 50px;
 }
 
 .info {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-indent: 2em;
-  font-size: 1.5rem;
-}
-
-.transition1 {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  bottom: 0;
-  z-index: 101;
-  background-color: grey;
-  transition: 0.5s ease-out;
-}
-
-.transition1.is-active {
-  left: 0px;
+  font-size: 20px;
 }
 
 /*Navigation Menu CSS*/
@@ -75,10 +60,9 @@ h2 {
 .navbar {
   position: fixed;
   width: 46px;
-  margin: calc(1vw - 8px) 0px 0px calc(1vw - 40px);
-  transition:
-    width 1s ease-in-out,
-    max-width 1s ease-in-out,
+  margin: clamp(calc(10px - 8px), calc(1vw - 8px), calc(20px - 8px)) 0px 0px
+    clamp(calc(10px - 40px), calc(1vw - 40px), calc(20px - 40px));
+  transition: width 1s ease-in-out, max-width 1s ease-in-out,
     background-color 0s ease-in-out;
   max-width: 46px;
   overflow: hidden;
@@ -92,7 +76,6 @@ h2 {
   max-width: 100vw;
   background-color: #000000;
   border-radius: 10em;
-  
 }
 
 .hamburger {
@@ -163,7 +146,7 @@ h2 {
   padding: 0;
   z-index: 201;
   transition: transform 1s ease-in-out, visibility 0s;
-  transform:translateX(-100%);
+  transform: translateX(-100%);
   overflow: hidden;
   visibility: hidden;
 }

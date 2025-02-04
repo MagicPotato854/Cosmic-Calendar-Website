@@ -66,6 +66,7 @@ class Planet {
     this.len_year = len_year;
     this.len_day = len_day;
     this.days_in_year = len_year / len_day;
+    this.day_digits = Math.floor(len_day).toString().length;
   }
 
   convert_in(totalHours) {
@@ -90,9 +91,14 @@ class Planet {
 
   print_time(hours) {
     let local_time = this.convert_in(hours);
+    let hour = Math.floor(local_time[2]);
+    let minute = Math.floor((local_time[2] % 1) * 60);
+
     return `${this.name}'s Date: Year ${1 + Math.floor(local_time[0])}, day ${
       1 + Math.floor(local_time[1])
-    }, ${Math.floor(local_time[2])}:${Math.floor((local_time[2] % 1) * 60)}`;
+    }, ${hour.toString().padStart(this.day_digits, "0")}:${minute
+      .toString()
+      .padStart(2, "0")}`;
   }
 }
 
