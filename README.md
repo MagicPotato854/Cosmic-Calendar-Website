@@ -3,16 +3,27 @@
 NASA has a competition every year called NASA HUNCH. We are working on one of their ideas called Cosmic Calendar.
 
 ## What it is
-We will create a time conversion for every planet and add timezones and do clocks.
+The Cosmic Calendar is a tool designed to allow seamless communication between celestial bodies in our solar system.
 
-## PLANS
-We will have multiple pages
-- Home page
-- About Page
-- Planet info page
-- Dashboard
-- Other pages in planning
-***
+### Currently Supported Celestial Objects
+- Mercury
+- Venus
+- Earth
+- Mars
+- Jupiter
+- Saturn
+- Uranus
+- Neptune
+
+## Plans
+- Distance Calculations
+
+### Planned Celestial Bodies
+- Earth's Moon
+- Europa
+- Makemake
+- Pluto
+
 ### Sources
 [JPLHorizons API](https://ssd.jpl.nasa.gov/horizons/)
 
