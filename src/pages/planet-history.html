@@ -10,54 +10,6 @@
     <link rel="stylesheet" href="../css/planet-history.css">
     <script src="../js/main.js"></script>
 
-    <style>
-        .planets-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .planet {
-            cursor: pointer;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 500px;
-            width: 80%;
-            position: relative;
-        }
-
-        .modal img {
-            max-width: 100px;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
@@ -81,31 +33,41 @@
     <div class="title">Planet History</div>
 
     <div class="planets-container">
-        <div class="planet" onclick="openModal('Sun', '../assets/planet pictures/sun.png', 'The Sun formed about 4.6 billion years ago from a collapsing cloud of gas and dust. Nuclear fusion in its core produces the energy that sustains life on Earth. It will eventually become a red giant before shrinking into a white dwarf. The Sun is so massive that it accounts for 99.8% of the total mass in the solar system. Its core temperature reaches an astonishing 15 million°C (27 million°F), making it a nuclear powerhouse.')">'
+        <div class="planet"
+            onclick="openModal('Sun', '../assets/planet pictures/sun.png', 'The Sun formed about 4.6 billion years ago from a collapsing cloud of gas and dust. Nuclear fusion in its core produces the energy that sustains life on Earth. It will eventually become a red giant before shrinking into a white dwarf. The Sun is so massive that it accounts for 99.8% of the total mass in the solar system. Its core temperature reaches an astonishing 15 million°C (27 million°F), making it a nuclear powerhouse.')">
+            '
             <img src="../assets/planet pictures/sun.png" alt="Sun">
         </div>
-        <div class="planet" onclick="openModal('Mercury', '../assets/planet pictures/mercury.png', 'Mercury is the smallest planet in the solar system and formed from metal-rich material, possibly due to massive collisions in its early history. A single day on Mercury lasts 176 Earth days because of its slow rotation. It also experiences the most extreme temperature variations, ranging from a freezing -173°C (-280°F) at night to a scorching 427°C (800°F) during the day. Unlike Earth, Mercury has almost no atmosphere to regulate its temperatures.')">
+        <div class="planet"
+            onclick="openModal('Mercury', '../assets/planet pictures/mercury.png', 'Mercury is the smallest planet in the solar system and formed from metal-rich material, possibly due to massive collisions in its early history. A single day on Mercury lasts 176 Earth days because of its slow rotation. It also experiences the most extreme temperature variations, ranging from a freezing -173°C (-280°F) at night to a scorching 427°C (800°F) during the day. Unlike Earth, Mercury has almost no atmosphere to regulate its temperatures.')">
             <img src="../assets/planet pictures/mercury.png" alt="Mercury">
         </div>
-        <div class="planet" onclick="openModal('Venus', '../assets/planet pictures/venus.png', 'Venus likely had liquid water billions of years ago, but a runaway greenhouse effect caused its atmosphere to trap immense heat, making it the hottest planet in our solar system. Venus is unique because it spins in the opposite direction (retrograde rotation) compared to most planets. Despite being the second planet from the Sun, its surface temperature is hotter than Mercury’s, averaging 467°C (872°F). Unlike most planets, Venus has no moons, making it one of only two planets in the solar system (along with Mercury) without a natural satellite.')">
+        <div class="planet"
+            onclick="openModal('Venus', '../assets/planet pictures/venus.png', 'Venus likely had liquid water billions of years ago, but a runaway greenhouse effect caused its atmosphere to trap immense heat, making it the hottest planet in our solar system. Venus is unique because it spins in the opposite direction (retrograde rotation) compared to most planets. Despite being the second planet from the Sun, its surface temperature is hotter than Mercury’s, averaging 467°C (872°F). Unlike most planets, Venus has no moons, making it one of only two planets in the solar system (along with Mercury) without a natural satellite.')">
             <img src="../assets/planet pictures/venus.png" alt="Venus">
         </div>
-        <div class="planet" onclick="openModal('Earth', '../assets/planet pictures/earth.png', 'Earth formed around 4.5 billion years ago and is the only known planet to support life. It has a dynamic atmosphere, a protective magnetic field, and vast oceans covering 71% of its surface. Unlike its neighboring planets, Earth has a stable climate that has allowed life to evolve over billions of years. It also has one natural satellite, the Moon, which influences tides and helps stabilize the planet’s rotation.')">
+        <div class="planet"
+            onclick="openModal('Earth', '../assets/planet pictures/earth.png', 'Earth formed around 4.5 billion years ago and is the only known planet to support life. It has a dynamic atmosphere, a protective magnetic field, and vast oceans covering 71% of its surface. Unlike its neighboring planets, Earth has a stable climate that has allowed life to evolve over billions of years. It also has one natural satellite, the Moon, which influences tides and helps stabilize the planet’s rotation.')">
             <img src="../assets/planet pictures/earth.png" alt="Earth">
         </div>
-        <div class="planet" onclick="openModal('Mars', '../assets/planet pictures/mars.png', 'Mars, often called the Red Planet, had liquid water in its past and may have once supported microbial life. It has the largest volcano in the solar system, Olympus Mons, which is nearly three times the height of Mount Everest. Mars has two small moons, Phobos and Deimos, which are likely captured asteroids. Scientists believe water ice exists beneath the surface, making Mars a key target for future exploration and potential colonization.')">
+        <div class="planet"
+            onclick="openModal('Mars', '../assets/planet pictures/mars.png', 'Mars, often called the Red Planet, had liquid water in its past and may have once supported microbial life. It has the largest volcano in the solar system, Olympus Mons, which is nearly three times the height of Mount Everest. Mars has two small moons, Phobos and Deimos, which are likely captured asteroids. Scientists believe water ice exists beneath the surface, making Mars a key target for future exploration and potential colonization.')">
             <img src="../assets/planet pictures/mars.png" alt="Mars">
         </div>
-        <div class="planet" onclick="openModal('Jupiter', '../assets/planet pictures/jupiter.png', 'Jupiter is the largest planet in the solar system, made mostly of hydrogen and helium. Its most famous feature, the Great Red Spot, is a massive storm that has been raging for over 350 years. Jupiter is also home to at least 92 moons, including Ganymede, which is the largest moon in the solar system—even bigger than Mercury. Its powerful magnetic field is the strongest of any planet, protecting its moons from solar radiation.')">
+        <div class="planet"
+            onclick="openModal('Jupiter', '../assets/planet pictures/jupiter.png', 'Jupiter is the largest planet in the solar system, made mostly of hydrogen and helium. Its most famous feature, the Great Red Spot, is a massive storm that has been raging for over 350 years. Jupiter is also home to at least 92 moons, including Ganymede, which is the largest moon in the solar system—even bigger than Mercury. Its powerful magnetic field is the strongest of any planet, protecting its moons from solar radiation.')">
             <img src="../assets/planet pictures/jupiter.png" alt="Jupiter">
         </div>
-        <div class="planet" onclick="openModal('Saturn', '../assets/planet pictures/saturn.png', 'Saturn is best known for its stunning ring system, composed of countless ice and rock particles. It is the least dense planet, meaning it could technically float in water if a large enough ocean existed. Saturn’s largest moon, Titan, is unique because it has rivers, lakes, and even a thick atmosphere rich in nitrogen and methane. Though less famous than Jupiter, Saturn also has a strong magnetic field and at least 83 moons orbiting it.')">
+        <div class="planet"
+            onclick="openModal('Saturn', '../assets/planet pictures/saturn.png', 'Saturn is best known for its stunning ring system, composed of countless ice and rock particles. It is the least dense planet, meaning it could technically float in water if a large enough ocean existed. Saturn’s largest moon, Titan, is unique because it has rivers, lakes, and even a thick atmosphere rich in nitrogen and methane. Though less famous than Jupiter, Saturn also has a strong magnetic field and at least 83 moons orbiting it.')">
             <img src="../assets/planet pictures/saturn.png" alt="Saturn">
         </div>
-        <div class="planet" onclick="openModal('Uranus', '../assets/planet pictures/uranus.png', 'Uranus is unique because it rotates on its side, likely due to a massive collision in its early history. This extreme tilt causes the planet to have some of the most unusual seasons in the solar system, where each pole experiences 42 years of continuous sunlight followed by 42 years of darkness. Uranus is also the coldest planet, with temperatures dropping to -224°C (-371°F). Although less visible than Saturn’s, Uranus has 13 known rings made of dust and ice.')">
+        <div class="planet"
+            onclick="openModal('Uranus', '../assets/planet pictures/uranus.png', 'Uranus is unique because it rotates on its side, likely due to a massive collision in its early history. This extreme tilt causes the planet to have some of the most unusual seasons in the solar system, where each pole experiences 42 years of continuous sunlight followed by 42 years of darkness. Uranus is also the coldest planet, with temperatures dropping to -224°C (-371°F). Although less visible than Saturn’s, Uranus has 13 known rings made of dust and ice.')">
             <img src="../assets/planet pictures/uranus.png" alt="Uranus">
         </div>
-        <div class="planet" onclick="openModal('Neptune', '../assets/planet pictures/neptune.png', 'Neptune is the farthest planet from the Sun and was the first planet discovered using mathematical predictions rather than direct observation. It experiences the fastest winds in the solar system, reaching 2,100 km/h (1,300 mph)—faster than Earth’s strongest hurricanes. One of its most famous features is the Great Dark Spot, a massive storm similar to Jupiter’s Great Red Spot. Neptune’s largest moon, Triton, is unusual because it orbits the planet backward (retrograde motion), suggesting it was captured from the Kuiper Belt.')">
+        <div class="planet"
+            onclick="openModal('Neptune', '../assets/planet pictures/neptune.png', 'Neptune is the farthest planet from the Sun and was the first planet discovered using mathematical predictions rather than direct observation. It experiences the fastest winds in the solar system, reaching 2,100 km/h (1,300 mph)—faster than Earth’s strongest hurricanes. One of its most famous features is the Great Dark Spot, a massive storm similar to Jupiter’s Great Red Spot. Neptune’s largest moon, Triton, is unusual because it orbits the planet backward (retrograde motion), suggesting it was captured from the Kuiper Belt.')">
             <img src="../assets/planet pictures/neptune.png" alt="Neptune">
         </div>
     </div>
