@@ -24,8 +24,6 @@ const navbar = document.querySelector('.navbar');
 
 let timeout;
 
-let testInp = '';
-
 // Functions
 
 function redirect(href) {
