@@ -2,7 +2,7 @@
 
 .jamsz {
     margin: auto;
-    width: 50vw;
+    width: 25vw;
     border-radius: 1em; 
 }
 
@@ -11,25 +11,94 @@
     margin: 20px 0;
 }
 
-.photos-left {
-    margin: auto;
-    width: 10vw;
-    border-radius: 1em;
-    position: absolute;
-    left: 1;
-}
-
-.photos-right {
-    margin: 15px 0;
-    width: 10vw;
-    border-radius: 1em;
-    position: absolute;
-    right: 1;
-}
-
-.id-text-left {
+.image-container {
     display: flex;
-    align-items: center;
-    margin-right: 10px;
+    flex-direction: column; 
+}
 
+.photo-left, .photo-right {
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center;
+    margin: 2vw 2vw;
+    gap: 20px;
+}
+
+.photo-left {
+    margin-right: 20vw;
+}
+
+.photo-right {
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-left: 20vw;
+}
+
+.photo-left img, .photo-right img {
+    width: 15vw; 
+    max-width: 45vw; 
+    border-radius: 1em;
+}
+
+.id-text {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
+   
+}
+
+.image-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-tag {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000;
+}
+
+.photo-left .image-container, 
+.photo-right .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    .jamsz {
+        width: 90vw;
+    }
+
+    .photo-left img, .photo-right img {
+        width: 40vw;
+    }
+
+    .photo-left, .photo-right {
+        flex-direction: column !important; /* Force column direction */
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .photo-right {
+        flex-direction: column !important;
+    }
+
+    /* Force image container to top */
+    .photo-left .image-container,
+    .photo-right .image-container {
+        order: 1;
+    }
+
+    /* Force text below image */
+    .photo-left .id-text,
+    .photo-right .id-text {
+        order: 2;
+        width: 90vw;
+        margin-top: 10px;
+    }
 }
