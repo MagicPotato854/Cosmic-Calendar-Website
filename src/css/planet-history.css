@@ -7,7 +7,7 @@ img {
 .planets {
     display: flex;
     flex-direction: column;
-    width: 20%;
+    max-width: 20%;
     align-items: flex-start;
     align-items: center;
     text-align: center;
@@ -15,4 +15,97 @@ img {
 
 .planets div img {
     width: 20vw;
+    min-width: 200px;
+}
+
+.planet {
+    height: 25vw;
+    width: 25vw;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+.planet img {
+    width: 100%;    /* Fill the container */
+    height: 100%;   /* Fill the container */
+    object-fit: contain; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    border-radius: 1em;
+}
+
+.planet img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.planets-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.planet {
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+}
+
+.planet img {
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        border-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    color : white;
+}
+
+.modal-content {
+    background: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 80%;
+    position: relative;
+}
+
+.modal img {
+    max-width: 100px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
 }
