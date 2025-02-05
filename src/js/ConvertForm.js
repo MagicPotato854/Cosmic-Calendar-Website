@@ -1,29 +1,13 @@
 // Disable dropdowns in the planet comparisions
-const planet1 = document.getElementById("planet1");
-const planet2 = document.getElementById("planet2");
+
+planet1 = "earth",
+planet2 = "mars",
+
 
 const zeroPad = (num, places) => String(num).padStart(places, "0");
 
 // Function to update dropdown options
-function updateDropdowns(changedDropdown, otherDropdown) {
-  // Get the selected value
-  const selectedValue = changedDropdown.value;
 
-  // Loop through all options in the other dropdown
-  Array.from(otherDropdown.options).forEach((option) => {
-    // Enable all options first
-    option.disabled = false;
-
-    // Disable the selected option
-    if (option.value === selectedValue) {
-      option.disabled = true;
-    }
-  });
-}
-
-// Add event listeners to both dropdowns
-planet1.addEventListener("change", () => updateDropdowns(planet1, planet2));
-planet2.addEventListener("change", () => updateDropdowns(planet2, planet1));
 
 // Get the select elements and image elements
 const planet1Image = document.getElementById("planetpic1");
@@ -31,7 +15,7 @@ const planet2Image = document.getElementById("planetpic2");
 
 // Function to update the image based on selected planet
 function updatePlanetImage(selectElement, imageElement) {
-  const planet = selectElement.value; // Get the selected planet's value
+  const planet = selectElement; // Get the selected planet's value
   imageElement.src = `src/assets/planet pictures/${planet}.png`; // Update the image source
   imageElement.alt = planet.charAt(0).toUpperCase() + planet.slice(1); // Set the alt text to match the planet name
 }
@@ -39,24 +23,13 @@ function updatePlanetImage(selectElement, imageElement) {
 // Function to update the time conversion
 function updateTimeConversion() {
   const test_time = new Date().getTime() / 1000 / 3600 + 17_259_900 - 18.9962336123;
-  result1.innerHTML = `${planets[planet1.value].print_time(test_time)}.`;
-  result2.innerHTML = `${planets[planet2.value].print_time(test_time)}.`;
+  result1.innerHTML = `${planets[planet12.planet1.value].print_time(test_time)}.`;
+  result2.innerHTML = `${planets[planet12.planet2.value].print_time(test_time)}.`;
 }
 
-// Add event listeners to update images and time conversion when a planet is selected
-planet1.addEventListener("change", function () {
-  updatePlanetImage(planet1, planet1Image);
-  updateTimeConversion();
-});
-
-planet2.addEventListener("change", function () {
-  updatePlanetImage(planet2, planet2Image);
-  updateTimeConversion();
-});
-
 // Initially set the images based on the default selected options
-updatePlanetImage(planet1, planet1Image);
-updatePlanetImage(planet2, planet2Image);
+updatePlanetImage(planet12.planet1, planet1Image);
+updatePlanetImage(planet12.planet2, planet2Image);
 
 // Results Window Calculations
 
@@ -132,10 +105,68 @@ const planets = {
   uranus: Uranus,
 };
 
-// Add an event listener to the button
-planet1.addEventListener("change", () => {
-  updateTimeConversion();
-});
+// Creates a dropdown menu and deletes it when a planet is selected
+
+function generatePlanetDropdown(containerId) {
+  const planets = [
+      { name: "Mercury", image: "src/assets/planet pictures/mercury.png" },
+      { name: "Venus", image: "src/assets/planet pictures/venus.png" },
+      { name: "Earth", image: "src/assets/planet pictures/earth.png" },
+      { name: "Mars", image: "src/assets/planet pictures/mars.png" },
+      { name: "Jupiter", image: "src/assets/planet pictures/jupiter.png" },
+      { name: "Saturn", image: "src/assets/planet pictures/saturn.png" },
+      { name: "Uranus", image: "src/assets/planet pictures/uranus.png" },
+      { name: "Neptune", image: "src/assets/planet pictures/neptune.png" }
+  ];
+
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const dropdownContent = document.createElement("div");
+  dropdownContent.classList.add("dropdown-content");
+
+  function deletePlanetDropdown() {
+      if (container) {
+          container.innerHTML = "";
+      }
+  }
+
+  planets.forEach(planet => {
+      const planetDiv = document.createElement("div");
+      
+      const img = document.createElement("img");
+      img.src = planet.image;
+      img.alt = planet.name;
+      
+      const label = document.createElement("label");
+      label.textContent = planet.name;
+      
+      planetDiv.appendChild(img);
+      planetDiv.appendChild(label);
+      planetDiv.onclick = function() {
+          planet1 = planet.name;
+          updateDropdowns();
+          alert(`You selected ${planet.name}`);
+          deletePlanetDropdown();
+          
+      };
+      dropdownContent.appendChild(planetDiv);
+  });
+  
+  container.appendChild(dropdownContent);
+}
+
+dropdownbtn1 = document.getElementById("dropdownbtn1");
+dropdownbtn2 = document.getElementById("dropdownbtn2");
+
+dropdownbtn1.onclick = function() {
+  generatePlanetDropdown("dropdown-container1");
+}
+
+dropdownbtn2.onclick = function() {
+  generatePlanetDropdown("dropdown-container2");
+}
+
 
 // Calculate distance between two planets
 /*
