@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/planet-history.css">
-    <script src="../js/main.js"></script>
 
 </head>
 
@@ -82,28 +81,8 @@
         </div>
     </div>
   
+    <script src="../js/planet-history.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/planetbutton.js"></script>
-
-    <script>
-        function openModal(name, imgSrc, text) {
-            document.getElementById("modalTitle").innerText = name;
-            document.getElementById("modalImage").src = imgSrc;
-            document.getElementById("modalText").innerText = text;
-            document.getElementById("planetModal").style.display = "flex";
-        }
-
-        function closeModal() {
-            document.getElementById("planetModal").style.display = "none";
-        }
-
-        // Close modal when clicking outside content
-        window.onclick = function (event) {
-            if (event.target === document.getElementById("planetModal")) {
-                closeModal();
-            }
-        };
-    </script>
 
 </body>
 
