@@ -1,5 +1,9 @@
 /*planet history*/
 
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 img {
     margin: 1rem 0px 1rem 0px;
 }
