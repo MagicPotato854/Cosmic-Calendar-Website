@@ -209,34 +209,32 @@ option img {
 }
 
 .dropdown-modal {
-  display: grid; /* Ensure only one display property is applied */
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  width: 70%;
-  top: 25%;
-  background-color: aliceblue;
-  padding: 5%;
-  grid-gap:1rem;
+  width: 460px;
+  height: 460px;
+  top: 40%;
+  background-color: rgb(30, 33, 41);
+  padding: 20px;
   border-radius: 5%;
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Center horizontally */
+  left: 50%;
+  transform: translateX(-50%);
   position: fixed;
-  justify-items: center; /* Center the columns horizontally */
+  justify-items: center;
 }
 
 .dropdown-content {
   background-color: #000;
-  min-width: 60px;
-  max-width: 70px;
-  border: #fff;
+  width: 100px;
+  height: 100px;
+  border: rgb(30, 33, 41);
+  border-style: solid;
   border-width: 2px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  /* grid-template-columns: repeat(3, 1fr); */
   padding: 1rem;
   border-radius: 15%;
-
-  /* Position the stuff inside the dropdown content in the center */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -244,6 +242,13 @@ option img {
   gap: 1rem;
   text-align: center;
   margin: 0;
+  transition: 200ms;
+}
+
+.dropdown-content:hover {
+  border-color: aliceblue;
+  transform: scale(1.1);
+  cursor:pointer;
 }
 
 .dropdown-content img {
@@ -255,7 +260,12 @@ option img {
 .dropdown-content label {
   margin: -10px;
   color: white;
-    
 }
 
+#dropdown-content1 {
+  display: none;
+}
 
+#dropdown-content2 {
+  display: none;
+}
