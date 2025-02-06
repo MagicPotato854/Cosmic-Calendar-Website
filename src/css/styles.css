@@ -9,6 +9,7 @@ ROOT STYLESHEET
   src: url("../assets/fonts/Chopsic-K6Dp.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  color: white;
 }
 
 /*Font Styles*/
@@ -16,6 +17,7 @@ ROOT STYLESHEET
 body {
   padding-left: 2rem;
   padding-right: 2rem;
+  background-color: #000000;
 }
 
 h2 {
@@ -47,6 +49,7 @@ h2 {
     "Lucida Sans", Arial, sans-serif;
   text-indent: 2em;
   font-size: clamp(12px, 1.5vw, 30px);
+  color: white;
 }
 
 /*Navigation Menu CSS*/
