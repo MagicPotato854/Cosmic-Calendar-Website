@@ -208,10 +208,20 @@ option img {
   text-align: left;
 }
 
-#dropdown-modal {
-  display: grid;
+.dropdown-modal {
+  display: grid; /* Ensure only one display property is applied */
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  width: 70%;
+  top: 25%;
+  background-color: aliceblue;
+  padding: 5%;
+  grid-gap:1rem;
+  border-radius: 5%;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  position: fixed;
+  justify-items: center; /* Center the columns horizontally */
 }
 
 .dropdown-content {
@@ -225,6 +235,15 @@ option img {
   /* grid-template-columns: repeat(3, 1fr); */
   padding: 1rem;
   border-radius: 15%;
+
+  /* Position the stuff inside the dropdown content in the center */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  margin: 0;
 }
 
 .dropdown-content img {
@@ -236,11 +255,7 @@ option img {
 .dropdown-content label {
   margin: -10px;
   color: white;
-  
-}
-
-.dropdown-modal {
-  display: flex;
+    
 }
 
 
