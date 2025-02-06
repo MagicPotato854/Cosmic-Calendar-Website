@@ -28,6 +28,8 @@ class clock {
     this.hourMult = 1;
     if(!trim) this.hourMult = 24 / hours;
     
+    this.trim = trim;
+    
     // Add HTML
     
     this.parent = document.getElementById(parentId);
@@ -97,8 +99,6 @@ class clock {
     
     if(this.trim) hourDeg = ((hour / this.planet.len_day) * 360) - 90;
     
-    print(this.trim);
-    
     // Math for hours
     
     this.secondHand.style.transform = 'rotate(' + secondDeg + 'deg)';
@@ -140,78 +140,28 @@ class clock {
   
 }
 
-// Planets
-
-class Planet {
-  constructor(name, len_year, len_day) {
-    this.name = name;
-    this.len_year = len_year;
-    this.len_day = len_day;
-    this.days_in_year = len_year / len_day;
-    this.day_digits = Math.floor(len_day).toString().length;
-  }
-
-  convert_in(totalHours) {
-    let years = Math.floor(totalHours / this.len_year);
-    let remainingHours = totalHours - years * this.len_year;
-    let days = Math.floor(remainingHours / this.len_day);
-    let finalHours = remainingHours - days * this.len_day;
-    return [years, days, finalHours];
-  }
-
-  convert_to_hours(local_time) {
-    return (
-      local_time[0] * this.len_year +
-      local_time[1] * this.len_day +
-      local_time[2]
-    );
-  }
-
-  convert_to_planet(time, planet) {
-    return planet.convert_in(this.convert_to_hours(time));
-  }
-
-  print_time(hours) {
-    let local_time = this.convert_in(hours);
-    let hour = Math.floor(local_time[2]);
-    let minute = Math.floor((local_time[2] % 1) * 60);
-
-    return `${this.name}'s Date: Year ${1 + Math.floor(local_time[0])}, day ${
-      1 + Math.floor(local_time[1])
-    }, ${hour.toString().padStart(this.day_digits, "0")}:${minute
-      .toString()
-      .padStart(2, "0")}`;
-  }
-}
-
-Mercury = new Planet("Mercury", 2_111.28, 4_223.28);
-Venus = new Planet("Venus", 5_392.8, 2_802);
-Earth = new Planet("Earth", 8_765.82335025, 24);
-Mars = new Planet("Mars", 16_487.4118608, 24.65979);
-Jupiter = new Planet("Jupiter", 103_982.16, 10.55);
-Saturn = new Planet("Saturn", 258_240.845, 9.933);
-Neptune = new Planet("Neptune", 1_444_530.151, 16.1);
-Uranus = new Planet("Uranus", 736_449.6, 17.233);
-
 // Functions
 
 function generateFace(radius, offset, hours, unit, face, mult = 1) {
   
-  while(hours > 12) {
-    hours = hours / 12;
-    mult = mult * 12;
+  let scale = 12; // What size to rescale at
+  let numInt = 6; // At what interval to set char to hour
+  
+  while(hours > scale) {
+    hours = hours / scale;
+    mult = mult * scale;
   }
   
-  for(let i = 0; i < 5 * hours; i++){
+  for(let i = 0; i < numInt * hours; i++){
     
-    let ang = ((i / (5 * hours) ) * (2 * Math.PI)) - (Math.PI / 2);
+    let ang = ((i / (numInt * hours) ) * (2 * Math.PI)) - (Math.PI / 2);
     
     let posX = (Math.cos(ang) + 1) * (radius)
     let posY = (Math.sin(ang) + 1) * (radius)
     
     let char = '&#x25AA'; // Default dot
     
-    if(i % 5 < 0.01) char = ((i / 5) % hours) * mult; // Set to hour every 5 ticks
+    if(i % numInt < 0.01) char = ((i / numInt) % hours) * mult; // Set to hour every numInt ticks
     if(i == 0) {
       if(char - Math.round(char) > 0.01) char = 0;
       else char = Math.round(hours * mult * 100) / 100; // Last/Total hours
@@ -224,7 +174,7 @@ function generateFace(radius, offset, hours, unit, face, mult = 1) {
       char = '&#x25AA'
     }
     
-    if(trueAng < Math.PI * 2 - 0.1) { // Not too close to first tick
+    if(trueAng < Math.PI * 2 - 0.08) { // Not too close to first tick
       // Ad Tick Elem
       let tick = document.createElement('div');
       tick.style = 'position: absolute; width: 2em; height: 2em; text-align: center; line-height: 2em; left:' + (posX + offset) + unit + '; top:' + (posY + offset) + unit + ';';
@@ -233,26 +183,6 @@ function generateFace(radius, offset, hours, unit, face, mult = 1) {
     }
       
   }
-  
-}
-
-function analog() {
-  
-  let second = time.getSeconds();
-  let minute = time.getMinutes() + (second / 60);
-  let hour = time.getHours() + (minute / 60);
-  
-  let secondHand = document.getElementById("second");
-  let minuteHand = document.getElementById("minute");
-  let hourHand = document.getElementById("hour");
-  
-  let secondDeg = (second * 6) - 90
-  let minuteDeg = (minute * 6) - 90
-  let hourDeg = (hour * 30) - 90
-  
-  secondHand.style.transform = 'rotate(' + secondDeg + 'deg)';
-  minuteHand.style.transform = 'rotate(' + minuteDeg + 'deg)';
-  hourHand.style.transform = 'rotate(' + hourDeg + 'deg)';
   
 }
 
