@@ -2,12 +2,14 @@
 
 .jamsz {
     margin: auto;
+    margin-top: 30px;
     width: 25vw;
-    border-radius: 1em; 
+    border-radius: 1em;
+    display: flex;
 }
 
 .border {
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
     margin: 20px 0;
 }
 
@@ -24,14 +26,9 @@
     gap: 20px;
 }
 
-.photo-left {
-    margin-right: 20vw;
-}
-
 .photo-right {
     justify-content: flex-end;
     flex-direction: row;
-    margin-left: 20vw;
 }
 
 .photo-left img, .photo-right img {
@@ -42,8 +39,8 @@
 
 .id-text {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 2rem;
-   
+    font-size: clamp(12px, 1.5vw, 30px);
+    color: white;
 }
 
 .image-wrapper {
@@ -58,7 +55,7 @@
     width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #000;
+    color: white;
 }
 
 .photo-left .image-container, 
@@ -70,7 +67,7 @@
 
 @media screen and (max-width: 800px) {
     .jamsz {
-        width: 90vw;
+        width: 70vw;
     }
 
     .photo-left img, .photo-right img {
@@ -101,4 +98,7 @@
         width: 90vw;
         margin-top: 10px;
     }
+}
+.headers{
+    color: white;
 }
