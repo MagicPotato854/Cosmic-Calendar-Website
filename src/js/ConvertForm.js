@@ -3,7 +3,7 @@
 planet1 = "earth";
 planet2 = "mars";
 
-
+const capitalizeFirstLetter = word => word.charAt(0).toUpperCase() + word.slice(1);
 const zeroPad = (num, places) => String(num).padStart(places, "0");
 
 // Function to update dropdown options
@@ -19,7 +19,7 @@ const dropdownbtn2 = document.getElementById("dropdownbtn2");
 // Function to update the image based on selected planet
 function updatePlanetImage(selectElement, imageElement, button) {
   const planet = selectElement; // Get the selected planet's value
-  button.innerHTML = selectElement;
+  button.innerHTML = capitalizeFirstLetter(selectElement);
 
   imageElement.src = `src/assets/planet pictures/${planet}.png`; // Update the image source
   imageElement.alt = planet.charAt(0).toUpperCase() + planet.slice(1); // Set the alt text to match the planet name
@@ -110,64 +110,8 @@ const planets = {
   uranus: Uranus,
 };
 
-// Creates a dropdown menu and deletes it when a planet is selected
-
-function generatePlanetDropdown(containerId) {
-  const planets = [
-      { name: "Mercury", image: "src/assets/planet pictures/mercury.png" },
-      { name: "Venus", image: "src/assets/planet pictures/venus.png" },
-      { name: "Earth", image: "src/assets/planet pictures/earth.png" },
-      { name: "Mars", image: "src/assets/planet pictures/mars.png" },
-      { name: "Jupiter", image: "src/assets/planet pictures/jupiter.png" },
-      { name: "Saturn", image: "src/assets/planet pictures/saturn.png" },
-      { name: "Uranus", image: "src/assets/planet pictures/uranus.png" },
-      { name: "Neptune", image: "src/assets/planet pictures/neptune.png" }
-  ];
-
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  const dropdownContent = document.createElement("div");
-  dropdownContent.classList.add("dropdown-content");
-
-  function deletePlanetDropdown() {
-      if (container) {
-          container.innerHTML = "";
-      }
-  }
-
-  planets.forEach(planet => {
-      const planetDiv = document.createElement("div");
-      
-      const img = document.createElement("img");
-      img.src = planet.image;
-      img.alt = planet.name;
-      
-      const label = document.createElement("label");
-      label.textContent = planet.name;
-      
-      planetDiv.appendChild(img);
-      planetDiv.appendChild(label);
-      planetDiv.onclick = function() {
-          planet1 = planet.name;
-          updateDropdowns();
-          alert(`You selected ${planet.name}`);
-          deletePlanetDropdown();
-          
-      };
-      dropdownContent.appendChild(planetDiv);
-  });
-  
-  container.appendChild(dropdownContent);
-}
-
-// ...existing code...
-
-
 const dropdownContent1 = document.getElementById("dropdown-content1");
 const dropdownContent2 = document.getElementById("dropdown-content2");
-
-
 
 dropdownbtn1.addEventListener("click", function() {
   if (dropdownContent2.style.display != "grid") {
