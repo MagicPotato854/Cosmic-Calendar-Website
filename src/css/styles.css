@@ -203,18 +203,19 @@ option img {
   cursor: pointer;
   width: 100%;
   text-align: left;
+  border: #000 solid 2px;
 }
 
 .dropdown-modal {
-  display: grid; /* Ensure only one display property is applied */
+  display: none; /* Ensure only one display property is applied */
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   width: 70%;
   top: 25%;
-  background-color: aliceblue;
+  background-color: rgb(134, 123, 123);
   padding: 5%;
-  grid-gap:1rem;
-  border-radius: 5%;
+  
+  border-radius: 1em;
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center horizontally */
   position: fixed;
@@ -241,6 +242,7 @@ option img {
   gap: 1rem;
   text-align: center;
   margin: 0;
+  transition:0.2s;
 }
 
 .dropdown-content img {
@@ -249,18 +251,69 @@ option img {
   border-radius: 50%;
 }
 
+.dropdown-content:hover {
+  transform: scale(1.1);
+  border-color: #00bcd4;
+  border-width: 2px;
+  border-style: solid;
+}
+
 .dropdown-content label {
   margin: -10px;
   color: white;
     
 }
 
+.planet-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+}
+
+.planet-pics {
+  display: flex;
+  /* space between the images */
+  justify-content: space-between;
+  padding-left: 15%;
+  padding-right:15%;
+}
+
+#dropdownbtn1 {
+  border-radius: 1em 1em 0 0;
+  border-bottom: 1px solid black; 
+  transition:0.2s;
+}
+
+#dropdownbtn1:hover {
+  border-radius:0px;
+}
+
+#dropdown-content3 {
+  display: flex;
+}
+
+/*
+#dropdownbtn2:hover {
+  border-radius:0px;
+}
+
+*/
+
+#dropdownbtn3 {
+  border-radius: 0 0 1em 1em;
+  border-top: 1px solid black;
+  transition:0.2s;
+}
+
+#dropdownbtn3:hover {
+  border-radius:0px;
+}
 @media screen and (max-width: 800px) {
   
   h2 {
     font-size: 2rem;
   }
-
   .title {
     font-size: clamp(30px, 3vw, 100px);
     min-height: 0px;
