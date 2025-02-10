@@ -164,6 +164,97 @@ h2 {
   visibility: visible;
 }
 
+select {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+option {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+option img {
+  width: 30px;
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+/* Custom Dropdown Menu CSS */
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  background-color: #f9f9f9;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-modal {
+  display: grid; /* Ensure only one display property is applied */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 70%;
+  top: 25%;
+  background-color: aliceblue;
+  padding: 5%;
+  grid-gap:1rem;
+  border-radius: 5%;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  position: fixed;
+  justify-items: center; /* Center the columns horizontally */
+}
+
+.dropdown-content {
+  background-color: #000;
+  min-width: 60px;
+  max-width: 70px;
+  border: #fff;
+  border-width: 2px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  /* grid-template-columns: repeat(3, 1fr); */
+  padding: 1rem;
+  border-radius: 15%;
+
+  /* Position the stuff inside the dropdown content in the center */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  margin: 0;
+}
+
+.dropdown-content img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.dropdown-content label {
+  margin: -10px;
+  color: white;
+    
+}
+
 @media screen and (max-width: 800px) {
   
   h2 {
