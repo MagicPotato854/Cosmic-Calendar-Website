@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/dash.css">
-  <link href="../assets/Icon.png" rel="icon">
+  <link href="../assets/img/favicon.png" rel="icon">
 </head>
 
 <body>
@@ -41,24 +41,20 @@
   
   <script src="../js/AreFilesLinked.js"></script>
   
+  <script src="../js/planets.js"></script>
+  
   <script src="../js/Clock.js"></script>
   
   <div id="clockTest" class="clockContainer"></div>
   
   <script>
-    const homeClock = new clock(24, 0, 'clockTest', false);
-  </script>
-  
-  <div id="speedClockTest" class="clockContainer"></div>
-  
-  <script>
-    const speedClockTest = new clock(1, 0, 'speedClockTest', false);
+    const homeClock = new clock(Earth, 'clockTest');
   </script>
   
   <div id="trimClockTest" class="clockContainer"></div>
   
   <script>
-    const trimClockTest = new clock(1408, 0, 'trimClockTest', true);
+    const trimClockTest = new clock(Uranus, 'trimClockTest');
   </script>
   
 </body>

@@ -1,7 +1,3 @@
-// Node
-
-// ???
-
 // Variables and Constants
 
 const headHTML = `
@@ -23,8 +19,6 @@ const menu = document.getElementById("menu");
 const navbar = document.querySelector('.navbar');
 
 let timeout;
-
-let testInp = '';
 
 // Functions
 
@@ -50,12 +44,6 @@ function shortcut(key, altKey, href) {
   if(keyPressed && href != current) window.location.href = href;
   
 }
-
-// Set Elements
-
-// for(let i = 0; i < head.length; i++) head[i].innerHTML += headHTML;
-
-// for(let i = 0; i < body.length; i++) body[i].innerHTML += bodyHTML;
 
 // Events
 
