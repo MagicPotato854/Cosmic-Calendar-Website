@@ -1,62 +1,50 @@
 // Disable dropdowns in the planet comparisions
-const planet1 = document.getElementById("planet1");
-const planet2 = document.getElementById("planet2");
 
+planet1 = "earth";
+planet2 = "mars";
+
+
+const capitalizeFirstLetter = word => word.charAt(0).toUpperCase() + word.slice(1);
 const zeroPad = (num, places) => String(num).padStart(places, "0");
 
-// Function to update dropdown options
-function updateDropdowns(changedDropdown, otherDropdown) {
-  // Get the selected value
-  const selectedValue = changedDropdown.value;
-
-  // Loop through all options in the other dropdown
-  Array.from(otherDropdown.options).forEach((option) => {
-    // Enable all options first
-    option.disabled = false;
-
-    // Disable the selected option
-    if (option.value === selectedValue) {
-      option.disabled = true;
-    }
-  });
-}
-
-// Add event listeners to both dropdowns
-planet1.addEventListener("change", () => updateDropdowns(planet1, planet2));
-planet2.addEventListener("change", () => updateDropdowns(planet2, planet1));
+const dateInput = document.getElementById("date");
+let datee = undefined;
 
 // Get the select elements and image elements
 const planet1Image = document.getElementById("planetpic1");
 const planet2Image = document.getElementById("planetpic2");
 
+const dropdownbtn1 = document.getElementById("dropdownbtn1");
+const dropdownbtn2 = document.getElementById("dropdownbtn2");
+const dropdownbtn3 = document.getElementById("dropdownbtn3");
+
 // Function to update the image based on selected planet
-function updatePlanetImage(selectElement, imageElement) {
-  const planet = selectElement.value; // Get the selected planet's value
+function updatePlanetImage(selectElement, imageElement, button) {
+  const planet = selectElement; // Get the selected planet's value
+  button.innerHTML = capitalizeFirstLetter(selectElement);
+
   imageElement.src = `src/assets/planet pictures/${planet}.png`; // Update the image source
   imageElement.alt = planet.charAt(0).toUpperCase() + planet.slice(1); // Set the alt text to match the planet name
 }
 
-// Add event listeners to update images when a planet is selected
-planet1.addEventListener("change", function () {
-  updatePlanetImage(planet1, planet1Image);
-  result1.innerHTML = "???";
-  result2.innerHTML = "???";
-});
-
-planet2.addEventListener("change", function () {
-  updatePlanetImage(planet2, planet2Image);
-  result1.innerHTML = "???";
-  result2.innerHTML = "???";
-});
+// Function to update the time conversion
+function updateTimeConversion(date) {
+  if (date == undefined) {
+    date = new Date().getTime() / 1000 / 3600 + 17_259_900 - 19;
+  } else {
+    date = new Date(date).getTime() / 1000 / 3600 + 17_259_900 - 19;
+  }
+  result1.innerHTML = `${planets[planet1].print_time(date)}.`;
+  result2.innerHTML = `${planets[planet2].print_time(date)}.`;
+}
 
 // Initially set the images based on the default selected options
-updatePlanetImage(planet1, planet1Image);
-updatePlanetImage(planet2, planet2Image);
+updatePlanetImage(planet1, planet1Image, dropdownbtn1);
+updatePlanetImage(planet2, planet2Image, dropdownbtn2);
 
 // Results Window Calculations
 
 // Get Form Elements
-const calcBtn = document.getElementById("calcBtn");
 const result1 = document.getElementById("result1");
 const result2 = document.getElementById("result2");
 
@@ -90,6 +78,11 @@ class Planet {
   }
 
   print_time(hours) {
+    if (this.name == "Earth") {
+      const baseDate = new Date('0001-01-01T00:00:00Z');
+      const date = new Date(baseDate.getTime() + hours * 3600 * 1000);
+      return `Earth's Date: ${date.toUTCString()}`;
+    }
     let local_time = this.convert_in(hours);
     let hour = Math.floor(local_time[2]);
     let minute = Math.floor((local_time[2] % 1) * 60);
@@ -123,12 +116,84 @@ const planets = {
   uranus: Uranus,
 };
 
-// Add an event listener to the button
-calcBtn.addEventListener("click", () => {
-  test_time = new Date().getTime() / 1000 / 3600 + 17_259_900 - 18.9962336123;
-  result1.innerHTML = `${planets[planet1.value].print_time(test_time)}.`;
-  result2.innerHTML = `${planets[planet2.value].print_time(test_time)}.`;
+const dropdownContent1 = document.getElementById("dropdown-content1");
+const dropdownContent2 = document.getElementById("dropdown-content2");
+const dropdownContent3 = document.getElementById("dropdown-content3");
+
+const checktime = document.getElementById("check");
+const nowTime = document.getElementById("now");
+
+dropdownbtn1.addEventListener("click", function() {
+  if (dropdownContent2.style.display != "grid") {
+    dropdownContent1.style.display = "grid";
+  }
 });
+
+dropdownbtn2.addEventListener("click", function() {
+  if (dropdownContent1.style.display != "grid") {
+    dropdownContent2.style.display = "grid";
+  }
+});
+
+dropdownbtn3.addEventListener("click", function() {
+  dropdownContent3.style.display = "flex";
+  
+});
+
+// Function to hide dropdown content
+function hideDropdown(dropdownContent) {
+    dropdownContent.style.display = "none";
+}
+
+// Add event listeners to each planet in dropdown-content1
+const planets1 = document.querySelectorAll('#dropdown-content1 .dropdown-content');
+planets1.forEach(planet => {
+    planet.addEventListener('click', () => {
+        hideDropdown(dropdownContent1);
+        planet1 = planet.querySelector('label').textContent.toLowerCase();
+        updatePlanetImage(planet1, planet1Image, dropdownbtn1);
+        updateTimeConversion(datee);
+    });
+});
+
+// Add event listeners to each planet in dropdown-content2
+const planets2 = document.querySelectorAll('#dropdown-content2 .dropdown-content');
+planets2.forEach(planet => {
+    planet.addEventListener('click', () => {
+        hideDropdown(dropdownContent2);
+        planet2 = planet.querySelector('label').textContent.toLowerCase();
+        updatePlanetImage(planet2, planet2Image, dropdownbtn2);
+        updateTimeConversion(datee);
+    });
+});
+const planets3 = document.querySelectorAll('#dropdown-content3 .dropdown-content');
+
+checktime.addEventListener("click", () => {
+  hideDropdown(dropdownContent3);
+  datee = dateInput.value;
+  updateTimeConversion(datee);
+  if (datee == undefined) {
+    dropdownbtn3.innerText = "Select Time: Now";
+  } else {
+    dropdownbtn3.innerText = "Select Time: " + datee;
+  }
+});
+nowTime.addEventListener("click", () => {
+  hideDropdown(dropdownContent3);
+  datee = undefined;
+  updateTimeConversion(datee);
+  if (datee == undefined) {
+    dropdownbtn3.innerText = "Select Time: Now";
+  } else {
+    dropdownbtn3.innerText = "Select Time: " + datee;
+  }
+});
+
+
+// ...existing code...
+
+// loop through each of the planets in the dropdown modal to add event listeners to style.display to none
+
 
 // Calculate distance between two planets
 /*

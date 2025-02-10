@@ -12,21 +12,23 @@ const clocks = [];
 
 class clock {
   
-  constructor(hours, offset, parentId, trim /*Speed vs Trim*/) {
+  constructor(planet, parentId, trim = true /*Speed vs Trim*/) {
     
     // Vars
     
-    this.update = true;
+    let hours = planet.len_day;
     
-    this.time = new Date();
+    this.planet = planet;
+    
+    this.update = true;
     
     this.mult = 24 / hours;
     if(trim) this.mult = 1;
     
-    this.offset = offset
-    
     this.hourMult = 1;
     if(!trim) this.hourMult = 24 / hours;
+    
+    this.trim = trim;
     
     // Add HTML
     
@@ -67,7 +69,7 @@ class clock {
     
     this.digitalFace = document.createElement('div');
     this.digitalFace.className = 'digital';
-    this.digitalFace.innerText = '##:##:## XX';
+    this.digitalFace.innerText = '##:##:##';
     this.parent.appendChild(this.digitalFace);
     
     if(trim) {
@@ -85,13 +87,19 @@ class clock {
   
   analog(time) {
     
-    let second = time.getSeconds();
-    let minute = time.getMinutes() + (second / 60);
-    let hour = time.getHours() + (minute / 60);
+    let ttlSec = Math.floor(time[2] * 3600);
     
-    let secondDeg = (second * 6) - 90
-    let minuteDeg = (minute * 6) - 90
-    let hourDeg = (hour * 30) - 90
+    let second = ttlSec % 60;
+    let minute = (ttlSec / 60) % 60;
+    let hour = (ttlSec / 3600);
+    
+    let secondDeg = (second * 6) - 90;
+    let minuteDeg = (minute * 6) - 90;
+    let hourDeg = (hour * 30) - 90;
+    
+    if(this.trim) hourDeg = ((hour / this.planet.len_day) * 360) - 90;
+    
+    // Math for hours
     
     this.secondHand.style.transform = 'rotate(' + secondDeg + 'deg)';
     this.minuteHand.style.transform = 'rotate(' + minuteDeg + 'deg)';
@@ -101,32 +109,32 @@ class clock {
   
   digital(time) {
     
-    let hour = time.getHours() % 12;
-    if(hour == 0) hour = 12;
-    if(hour < 10) hour = "0" + hour;
+    let ttlSec = Math.floor(time[2] * 3600);
     
-    let meridiem = "AM";
-    if(time.getHours() >= 12) meridiem = "PM";
+    let hour = Math.floor(ttlSec / 3600);
     
-    let minute = time.getMinutes();
+    let minute = Math.floor((ttlSec / 60) % 60);
     if(minute < 10) minute = "0" + minute;
     
-    let second = time.getSeconds();
+    let second = ttlSec % 60;
     if(second < 10) second = "0" + second;
     
-    this.digitalFace.innerHTML = hour + ":" + minute + ":" + second + " " + meridiem;
+    this.digitalFace.innerHTML = hour + ":" + minute + ":" + second;
     
   }
   
   animate() {
     
-    if(this.update) {
-      // Will be replaced with a translator function:
-      this.time.setTime((new Date().getTime() * this.mult) + this.offset);
-    }
+    if(!this.update) return
     
-    this.analog(this.time);
-    this.digital(this.time);
+    // Hours since epoch
+    let hours = new Date().getTime() / 1000 / 3600 + 17_259_900 - 18.9962336123;
+    
+    // Time list
+    let time = this.planet.convert_in(hours);
+    
+    this.analog(time);
+    this.digital(time);
     
   }
   
@@ -134,58 +142,51 @@ class clock {
 
 // Functions
 
-function generateFace(radius, offset, hours, unit, face, mult = 1){
+function generateFace(radius, offset, hours, unit, face, mult = 1) {
   
-  while(hours > 24) {
-    hours = hours / 24;
-    mult = mult * 24;
+  let scale = 12; // What size to rescale at
+  let numInt = 6; // At what interval to set char to hour
+  
+  while(hours > scale) {
+    hours = hours / scale;
+    mult = mult * scale;
   }
   
-  for(let i = 0; i < 5 * hours; i++){
+  for(let i = 0; i < numInt * hours; i++){
     
-    let ang = ((i / (5 * hours) ) * (2 * Math.PI)) - (Math.PI / 2);
+    let ang = ((i / (numInt * hours) ) * (2 * Math.PI)) - (Math.PI / 2);
     
     let posX = (Math.cos(ang) + 1) * (radius)
     let posY = (Math.sin(ang) + 1) * (radius)
     
-    let char = '&#x25AA';
+    let char = '&#x25AA'; // Default dot
     
-    if(i % 5 < 0.01) char = ((i / 5) % hours) * mult;
+    if(i % numInt < 0.01) char = ((i / numInt) % hours) * mult; // Set to hour every numInt ticks
     if(i == 0) {
       if(char - Math.round(char) > 0.01) char = 0;
-      else char = Math.round(hours * mult);
+      else char = Math.round(hours * mult * 100) / 100; // Last/Total hours
     }
     
-    let tick = document.createElement('div');
-    tick.style = 'position: absolute; width: 2em; height: 2em; text-align: center; line-height: 2em; left:' + (posX + offset) + unit + '; top:' + (posY + offset) + unit + ';';
-    tick.innerHTML = char;
-    face.appendChild(tick);
+    trueAng = ang + (Math.PI) / 2
     
+    if(trueAng > Math.PI * 2 - 0.2) { // Too close to first tick
+      // Change back to (smaller) tick
+      char = '&#x25AA'
+    }
+    
+    if(trueAng < Math.PI * 2 - 0.08) { // Not too close to first tick
+      // Ad Tick Elem
+      let tick = document.createElement('div');
+      tick.style = 'position: absolute; width: 2em; height: 2em; text-align: center; line-height: 2em; left:' + (posX + offset) + unit + '; top:' + (posY + offset) + unit + ';';
+      tick.innerHTML = char;
+      face.appendChild(tick);
+    }
+      
   }
   
 }
 
-function analog(){
-  
-  let second = time.getSeconds();
-  let minute = time.getMinutes() + (second / 60);
-  let hour = time.getHours() + (minute / 60);
-  
-  let secondHand = document.getElementById("second");
-  let minuteHand = document.getElementById("minute");
-  let hourHand = document.getElementById("hour");
-  
-  let secondDeg = (second * 6) - 90
-  let minuteDeg = (minute * 6) - 90
-  let hourDeg = (hour * 30) - 90
-  
-  secondHand.style.transform = 'rotate(' + secondDeg + 'deg)';
-  minuteHand.style.transform = 'rotate(' + minuteDeg + 'deg)';
-  hourHand.style.transform = 'rotate(' + hourDeg + 'deg)';
-  
-}
-
-function animate(){
+function animate() {
   
   for(let i = 0; i < clocks.length; i ++) {
     
