@@ -12,7 +12,7 @@ const clocks = [];
 
 class clock {
   
-  constructor(planet, parentId, trim = true /*Speed vs Trim*/) {
+  constructor(planet, parentId, earth = false) {
     
     // Vars
     
@@ -22,13 +22,11 @@ class clock {
     
     this.update = true;
     
-    this.mult = 24 / hours;
-    if(trim) this.mult = 1;
+    this.mult = 1;
     
     this.hourMult = 1;
-    if(!trim) this.hourMult = 24 / hours;
     
-    this.trim = trim;
+    this.earth = earth;
     
     // Add HTML
     
@@ -72,12 +70,8 @@ class clock {
     this.digitalFace.innerText = '##:##:##';
     this.parent.appendChild(this.digitalFace);
     
-    if(trim) {
-      generateFace(15, 0, 12, 'em', this.face, 5);
-      generateFace(12, 3, hours, 'em', this.face, 1);
-    }
-    
-    else generateFace(15, 0, 12, 'em', this.face);
+    generateFace(15, 0, 12, 'em', this.face, 5);
+    generateFace(12, 3, hours, 'em', this.face, 1);
     
     // Push
     
@@ -89,15 +83,18 @@ class clock {
     
     let ttlSec = Math.floor(time[2] * 3600);
     
+    if(this.earth) ttlSec = ((Math.floor(Date.now() / 1000) - (7 * 3600)) % (3600 * 24));
+    
     let second = ttlSec % 60;
     let minute = (ttlSec / 60) % 60;
     let hour = (ttlSec / 3600);
     
     let secondDeg = (second * 6) - 90;
     let minuteDeg = (minute * 6) - 90;
-    let hourDeg = (hour * 30) - 90;
     
-    if(this.trim) hourDeg = ((hour / this.planet.len_day) * 360) - 90;
+    let hourDeg = ((hour / this.planet.len_day) * 360) - 90;
+    
+    if(this.earth) hourDeg = (hour * 15) - 90;
     
     // Math for hours
     
@@ -109,7 +106,12 @@ class clock {
   
   digital(time) {
     
+    
+    
     let ttlSec = Math.floor(time[2] * 3600);
+    // Date().getTime() / 1000 / 3600 + 17_259_900 - 19
+    // ^ used to get current time for earth? probable delete the + 17_259_900 and - 19
+    if(this.earth) ttlSec = ((Math.floor(Date.now() / 1000) - (7 * 3600)) % (3600 * 24));
     
     let hour = Math.floor(ttlSec / 3600);
     
@@ -195,3 +197,33 @@ function animate() {
   }
   
 }
+
+// Add Each Planet Clocks
+
+document.addEventListener('DOMContentLoaded', function () {
+  
+  let body = document.getElementsByTagName('body')[0];
+  
+  for(let i = 0; i < planets.length; i++) {
+    
+    let header = document.createElement('h2');
+    body.appendChild(header);
+    header.innerText = planets[i].name;
+    
+    let clock = document.createElement('div');
+    body.appendChild(clock);
+    clock.id = planets[i].name;
+    clock.className = 'clockContainer';
+    
+  }
+  
+  for(let i = 0; i < planets.length; i++) {
+    
+    if(planets[i].name == 'Earth') new clock(planets[i], planets[i].name, true);
+    
+    else new clock(planets[i], planets[i].name);
+    
+  }
+  
+});
+
