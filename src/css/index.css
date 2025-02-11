@@ -166,4 +166,20 @@
     #planetpic1, #planetpic2 {
         width: 60vw; /* Adjust image size for small screens */
     }
+
+    .planet-pics {
+        flex-direction: column; /* Stack the images */
+        align-items: center; /* Center the images horizontally */
+        padding-left: 0; /* Remove padding */
+        padding-right: 0;
+    }
+
+    .results.dropdown-container {
+        flex-direction: column; /* Stack the results */
+        align-items: center; /* Center the results horizontally */
+    }
+
+    #result1, #result2 {
+        text-align: center; /* Center the text within the result divs */
+    }
 }
