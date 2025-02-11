@@ -3,8 +3,8 @@
 planet1 = "earth";
 planet2 = "mars";
 
-
-const capitalizeFirstLetter = word => word.charAt(0).toUpperCase() + word.slice(1);
+const capitalizeFirstLetter = (word) =>
+  word.charAt(0).toUpperCase() + word.slice(1);
 const zeroPad = (num, places) => String(num).padStart(places, "0");
 
 const dateInput = document.getElementById("date");
@@ -79,7 +79,7 @@ class Planet {
 
   print_time(hours) {
     if (this.name == "Earth") {
-      const baseDate = new Date('0001-01-01T00:00:00Z');
+      const baseDate = new Date("0001-01-01T00:00:00Z");
       const date = new Date(baseDate.getTime() + hours * 3600 * 1000);
       return `Earth's Date: ${date.toUTCString()}`;
     }
@@ -123,50 +123,55 @@ const dropdownContent3 = document.getElementById("dropdown-content3");
 const checktime = document.getElementById("check");
 const nowTime = document.getElementById("now");
 
-dropdownbtn1.addEventListener("click", function() {
+dropdownbtn1.addEventListener("click", function () {
   if (dropdownContent2.style.display != "grid") {
     dropdownContent1.style.display = "grid";
   }
 });
 
-dropdownbtn2.addEventListener("click", function() {
+dropdownbtn2.addEventListener("click", function () {
   if (dropdownContent1.style.display != "grid") {
     dropdownContent2.style.display = "grid";
   }
 });
 
-dropdownbtn3.addEventListener("click", function() {
+dropdownbtn3.addEventListener("click", function () {
   dropdownContent3.style.display = "flex";
-  
 });
 
 // Function to hide dropdown content
 function hideDropdown(dropdownContent) {
-    dropdownContent.style.display = "none";
+  dropdownContent.style.display = "none";
 }
 
 // Add event listeners to each planet in dropdown-content1
-const planets1 = document.querySelectorAll('#dropdown-content1 .dropdown-content');
-planets1.forEach(planet => {
-    planet.addEventListener('click', () => {
-        hideDropdown(dropdownContent1);
-        planet1 = planet.querySelector('label').textContent.toLowerCase();
-        updatePlanetImage(planet1, planet1Image, dropdownbtn1);
-        updateTimeConversion(datee);
-    });
+const planets1 = document.querySelectorAll(
+  "#dropdown-content1 .dropdown-content"
+);
+planets1.forEach((planet) => {
+  planet.addEventListener("click", () => {
+    hideDropdown(dropdownContent1);
+    planet1 = planet.querySelector("label").textContent.toLowerCase();
+    updatePlanetImage(planet1, planet1Image, dropdownbtn1);
+    updateTimeConversion(datee);
+  });
 });
 
 // Add event listeners to each planet in dropdown-content2
-const planets2 = document.querySelectorAll('#dropdown-content2 .dropdown-content');
-planets2.forEach(planet => {
-    planet.addEventListener('click', () => {
-        hideDropdown(dropdownContent2);
-        planet2 = planet.querySelector('label').textContent.toLowerCase();
-        updatePlanetImage(planet2, planet2Image, dropdownbtn2);
-        updateTimeConversion(datee);
-    });
+const planets2 = document.querySelectorAll(
+  "#dropdown-content2 .dropdown-content"
+);
+planets2.forEach((planet) => {
+  planet.addEventListener("click", () => {
+    hideDropdown(dropdownContent2);
+    planet2 = planet.querySelector("label").textContent.toLowerCase();
+    updatePlanetImage(planet2, planet2Image, dropdownbtn2);
+    updateTimeConversion(datee);
+  });
 });
-const planets3 = document.querySelectorAll('#dropdown-content3 .dropdown-content');
+const planets3 = document.querySelectorAll(
+  "#dropdown-content3 .dropdown-content"
+);
 
 checktime.addEventListener("click", () => {
   hideDropdown(dropdownContent3);
@@ -189,11 +194,54 @@ nowTime.addEventListener("click", () => {
   }
 });
 
+function extractLightTime(text) {
+  const regex = /(\d{4}-\w{3}-\d{2} \d{2}:\d{2})\s+(\d+\.\d+)/;
+  const match = text.match(regex);
 
-// ...existing code...
+  if (match) {
+    return match[2]; // Return the light-time value (group 2)
+  } else {
+    return "No number found";
+  }
+}
+
+async function fetchData(formattedDate) {
+  try {
+    const apiUrl = `https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27499%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500@399%27&START_TIME=%27${formattedDate}%27&STOP_TIME=%27${formattedDate.slice(
+      0,
+      formattedDate.length - 2
+    )}${formattedDate.slice(
+      0,
+      formattedDate.length - 2
+    )}%27&STEP_SIZE=%271%20d%27&QUANTITIES=%2721%27`;
+
+    const response = await fetch(`${apiUrl}?q=${query}&apiKey=${apiKey}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log("Data from API:", data);
+    // Process your data here
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+if (datee == undefined) {
+  const light_date = new Date();
+
+  const year = light_date.getFullYear();
+  const month = String(light_date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+  const day = String(light_date.getDate()).padStart(2, '0');
+
+  const formattedDate = `${year}-${month}-${day}`;
+} else {
+  const formattedDate = datee.split('T')[0]; // "YYYY-MM-DD"
+}
+
+
 
 // loop through each of the planets in the dropdown modal to add event listeners to style.display to none
-
 
 // Calculate distance between two planets
 /*
