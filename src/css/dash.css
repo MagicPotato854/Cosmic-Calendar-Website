@@ -1,3 +1,19 @@
+/* Elements */
+@font-face {
+  font-family: "Chopsic";
+  src: url("../assets/fonts/Chopsic-K6Dp.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  color: white;
+}
+
+h2 {
+  font-family: "Chopsic";
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+}
+
 /* Clock */
 
 .face {

@@ -50,3 +50,16 @@ Jupiter = new Planet("Jupiter", 103_982.16, 10.55);
 Saturn = new Planet("Saturn", 258_240.845, 9.933);
 Uranus = new Planet("Uranus", 736_449.6, 17.233);
 Neptune = new Planet("Neptune", 1_444_530.151, 16.1);
+
+// Planets into List
+
+planets = [
+  Mercury,
+  Venus,
+  Earth,
+  Mars,
+  Jupiter,
+  Saturn,
+  Uranus,
+  Neptune
+];
