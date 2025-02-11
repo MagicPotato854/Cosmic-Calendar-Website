@@ -81,19 +81,17 @@
         gap: 10px;
     }
 
-    .photo-right {
-        flex-direction: column !important;
-    }
-
     /* Force image container to top */
-    .photo-left .image-container,
-    .photo-right .image-container {
+    /* These selectors were incorrect, they should target the direct children of photo-left/right */
+    .photo-left > div:first-child,
+    .photo-right > div:last-child {
         order: 1;
     }
 
     /* Force text below image */
-    .photo-left .id-text,
-    .photo-right .id-text {
+    /* These selectors were incorrect, they should target the direct children of photo-left/right */
+    .photo-left > div:last-child,
+    .photo-right > div:first-child {
         order: 2;
         width: 90vw;
         margin-top: 10px;
