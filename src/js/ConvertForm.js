@@ -120,6 +120,8 @@ const dropdownContent1 = document.getElementById("dropdown-content1");
 const dropdownContent2 = document.getElementById("dropdown-content2");
 const dropdownContent3 = document.getElementById("dropdown-content3");
 
+const distanceGetter = document.getElementById("distance")
+
 const checktime = document.getElementById("check");
 const nowTime = document.getElementById("now");
 
@@ -154,6 +156,7 @@ planets1.forEach((planet) => {
     planet1 = planet.querySelector("label").textContent.toLowerCase();
     updatePlanetImage(planet1, planet1Image, dropdownbtn1);
     updateTimeConversion(datee);
+    distanceGetter.innerText = extractLightTime(fetchData());
   });
 });
 
@@ -167,6 +170,7 @@ planets2.forEach((planet) => {
     planet2 = planet.querySelector("label").textContent.toLowerCase();
     updatePlanetImage(planet2, planet2Image, dropdownbtn2);
     updateTimeConversion(datee);
+    distanceGetter.innerText = extractLightTime(fetchData());
   });
 });
 const planets3 = document.querySelectorAll(
@@ -182,6 +186,7 @@ checktime.addEventListener("click", () => {
   } else {
     dropdownbtn3.innerText = "Select Time: " + datee;
   }
+  distanceGetter.innerText = extractLightTime(fetchData());
 });
 nowTime.addEventListener("click", () => {
   hideDropdown(dropdownContent3);
@@ -192,6 +197,7 @@ nowTime.addEventListener("click", () => {
   } else {
     dropdownbtn3.innerText = "Select Time: " + datee;
   }
+  distanceGetter.innerText = extractLightTime(fetchData());
 });
 
 function extractLightTime(text) {
@@ -204,41 +210,69 @@ function extractLightTime(text) {
     return "No number found";
   }
 }
+const planet_table = {
+  "mercury": "199",
+  "venus": "299",
+  "earth": "399",
+  "mars": "499",
+  "jupiter": "599",
+  "saturn": "699",
+  "uranus": "799",
+  "neptune": "899"
+}
+async function fetchData() {
+  let observingPlanet = planet_table[planet1];
+  let targetPlanet = planet_table[planet2];
+  const dateee = dateFormatter()
+  const formattedDate = dateee[0]
+  const onedayafter = dateee[1]
 
-async function fetchData(formattedDate) {
   try {
-    const apiUrl = `https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27499%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500@399%27&START_TIME=%27${formattedDate}%27&STOP_TIME=%27${formattedDate.slice(
-      0,
-      formattedDate.length - 2
-    )}${formattedDate.slice(
-      0,
-      formattedDate.length - 2
-    )}%27&STEP_SIZE=%271%20d%27&QUANTITIES=%2721%27`;
+    const apiUrl = `https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27${targetPlanet}%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500@${observingPlanet}%27&START_TIME=%27${formattedDate}%27&STOP_TIME=%27${onedayafter}%27&STEP_SIZE=%271%20d%27&QUANTITIES=%2721%27`;
 
     const response = await fetch(`${apiUrl}?q=${query}&apiKey=${apiKey}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    console.log("Data from API:", data);
+    console.log("Data from API:", data);  
     // Process your data here
   } catch (error) {
     console.error("Error fetching data:", error);
   }
 }
+fetchData()
+fetchData()
+function dateFormatter() {
+  if (datee == undefined) {
+    const light_date = new Date();
+    let lightDateTmr = new Date();
+    lightDateTmr.setDate(lightDateTmr.getDate() + 1); // Increment by 1 day
 
-if (datee == undefined) {
-  const light_date = new Date();
+    let year = light_date.getFullYear();
+    let month = String(light_date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    let day = String(light_date.getDate()).padStart(2, '0');
 
-  const year = light_date.getFullYear();
-  const month = String(light_date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-  const day = String(light_date.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
 
-  const formattedDate = `${year}-${month}-${day}`;
-} else {
-  const formattedDate = datee.split('T')[0]; // "YYYY-MM-DD"
+    year = lightDateTmr.getFullYear();
+    month = String(lightDateTmr.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    day = String(lightDateTmr.getDate()).padStart(2, '0');
+
+    const formattedDateTmr = `${year}-${month}-${day}`;
+    return (formattedDate, formattedDateTmr)
+
+  } else {
+    const formattedDate = datee.split('T')[0]; // "YYYY-MM-DD"
+    let lightDateTmr = new Date(formattedDate);
+    lightDateTmr.setDate(lightDateTmr.getDate() + 1); // Increment by 1 day
+    year = lightDateTmr.getFullYear();
+    month = String(lightDateTmr.getMonth() + 1).padStart(2, '0');
+    day = String(lightDateTmr.getDate()).padStart(2, '0');
+    const formattedDateTmr = `${year}-${month}-${day}`
+    return (formattedDate, formattedDateTmr)
+  }
 }
-
 
 
 // loop through each of the planets in the dropdown modal to add event listeners to style.display to none
