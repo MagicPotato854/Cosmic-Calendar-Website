@@ -30,6 +30,10 @@ body {
   top: 2em;
   left: calc(50% - 16em);
   background-color: rgb(224, 224, 224);
+  background-image: linear-gradient(
+    rgb(64, 64, 64) 45%,
+    rgb(224, 224, 224) 55%
+  );
 }
 
 .second {

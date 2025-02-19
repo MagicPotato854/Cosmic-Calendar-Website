@@ -163,6 +163,8 @@ function generateFace(radius, offset, hours, unit, face, mult = 1) {
     
     let char = '&#x25AA'; // Default dot
     
+    let color = '#FFFFFF'; // Default color
+    
     if(i % numInt < 0.01) char = ((i / numInt) % hours) * mult; // Set to hour every numInt ticks
     if(i == 0) {
       if(char - Math.round(char) > 0.01) char = 0;
@@ -171,15 +173,17 @@ function generateFace(radius, offset, hours, unit, face, mult = 1) {
     
     trueAng = ang + (Math.PI) / 2
     
+    if(trueAng < (Math.PI * 3/2) && trueAng > (Math.PI * 1/2)) color = '#000000'; // Day Color
+    
     if(trueAng > Math.PI * 2 - 0.2) { // Too close to first tick
       // Change back to (smaller) tick
       char = '&#x25AA'
     }
     
     if(trueAng < Math.PI * 2 - 0.08) { // Not too close to first tick
-      // Ad Tick Elem
+      // Add Tick Elem
       let tick = document.createElement('div');
-      tick.style = 'position: absolute; width: 2em; height: 2em; text-align: center; line-height: 2em; left:' + (posX + offset) + unit + '; top:' + (posY + offset) + unit + ';';
+      tick.style = 'position: absolute; width: 2em; height: 2em; text-align: center; line-height: 2em; left:' + (posX + offset) + unit + '; top:' + (posY + offset) + unit + '; color: ' + color + ';';
       tick.innerHTML = char;
       face.appendChild(tick);
     }
