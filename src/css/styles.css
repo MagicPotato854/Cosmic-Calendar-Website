@@ -67,6 +67,45 @@ h2 {
   color: white;
 }
 
+/*Button Styles*/
+
+.clicker {
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-style: hidden;
+  border-radius: .5em;
+  transition: 250ms;
+  box-shadow: 0px 0px 10px #f9f9f9;
+}
+
+.clicker:hover {
+  background: #131313;
+  color: #09f;
+  text-shadow: 0px 0px 10px #09f;
+  box-shadow: 0px 0px 10px #09f;
+}
+
+.datebox {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  height: auto;
+  padding:10px;
+  border-radius: 7px;
+  background-color: rgba(255,255,255,1);
+  box-shadow: 0px 0px 10px #f9f9f9;
+}
+
+.datebox input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
 /*Navigation Menu CSS*/
 
 .navbar {
