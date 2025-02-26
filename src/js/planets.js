@@ -48,18 +48,26 @@ Earth = new Planet("Earth", 8_765.82335025, 24);
 Mars = new Planet("Mars", 16_487.4118608, 24.65979);
 Jupiter = new Planet("Jupiter", 103_982.16, 10.55);
 Saturn = new Planet("Saturn", 258_240.845, 9.933);
-Uranus = new Planet("Uranus", 736_449.6, 17.233);
 Neptune = new Planet("Neptune", 1_444_530.151, 16.1);
+Uranus = new Planet("Uranus", 736_449.6, 17.233);
+Pluto = new Planet("Pluto", 2_183_561.195452403, 153.36);
+Europa = new Planet("Europa", 103_982.16, 85.2);
+Makemake = new Planet("Makemake", 2_685_975.641845082, 22.8266);
+Moon = new Planet("Moon", 8765.813, 708.734);
+Titan = new Planet("Titan", 103_982.16, 382.8);
 
-// Planets into List
-
-planets = [
+const planets = [
   Mercury,
   Venus,
   Earth,
   Mars,
   Jupiter,
   Saturn,
+  Neptune,
   Uranus,
-  Neptune
+  Pluto,
+  Europa,
+  Makemake,
+  Moon,
+  Titan,
 ];
