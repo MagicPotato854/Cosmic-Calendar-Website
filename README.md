@@ -14,15 +14,23 @@ The Cosmic Calendar is a tool designed to allow seamless communication between c
 - Saturn
 - Uranus
 - Neptune
-
-## Plans
-- Distance Calculations
-
-### Planned Celestial Bodies
+- Pluto
+- Makemake
 - Earth's Moon
 - Europa
-- Makemake
-- Pluto
+- Titan
+- Ceres
+- Vesta
+- Pallas
+
+## Planned Features
+- Distance calculations
+- Light mode
+- Year progress bar on Dashboard
+
+## Problems to Fix
+- Font Size refinement
+- Tweak Animations
 
 ### Sources
 [JPLHorizons API](https://ssd.jpl.nasa.gov/horizons/)
