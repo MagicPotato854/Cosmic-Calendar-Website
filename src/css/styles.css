@@ -56,7 +56,7 @@ h2 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-indent: 2em;
-  font-size: clamp(12px, 1.5vw, 30px);
+  font-size: clamp(24px, 1.5vw, 100px);
   color: white;
 }
 
@@ -111,8 +111,10 @@ h2 {
 .navbar {
   position: fixed;
   width: 46px;
+  /*
   margin: clamp(calc(10px - 8px), calc(1vw - 8px), calc(20px - 8px)) 0px 0px
-    clamp(calc(10px - 40px), calc(1vw - 40px), calc(20px - 40px));
+    clamp(calc(10px - 40px), calc(1vw - 40px), calc(20px - 40px));*/
+  margin: calc(-2vw - 2rem);
   transition: width 1s ease-in-out, max-width 1s ease-in-out,
     background-color 0s ease-in-out;
   max-width: 46px;
