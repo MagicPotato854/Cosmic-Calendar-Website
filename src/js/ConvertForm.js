@@ -109,6 +109,9 @@ Europa = new Planet("Europa", 103_982.16, 85.2);
 Makemake = new Planet("Makemake", 2_685_975.641845082, 22.8266);
 Moon = new Planet("Moon", 8765.813, 708.734);
 Titan = new Planet("Titan", 103_982.16, 382.8);
+Ceres = new Planet("Ceres", 40_398.19866, 9.07417);
+Vesta = new Planet("Vesta", 31_809.9733898, 5.34212766);
+Pallas = new Planet("Pallas", 40_418.0056554, 7.8132214);
 
 const planets = {
   mercury: Mercury,
@@ -124,6 +127,9 @@ const planets = {
   makemake: Makemake,
   moon: Moon,
   titan: Titan,
+  ceres: Ceres,
+  vesta: Vesta,
+  pallas: Pallas,
 };
 
 const dropdownContent1 = document.getElementById("dropdown-content1");
