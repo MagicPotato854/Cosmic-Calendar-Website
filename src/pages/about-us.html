@@ -13,6 +13,7 @@
 
 <body>
 
+    <!--NAVIGATION-->
     <div class="navbar" id="navbar">
         <svg class="hamRotate180 ham hamburger" id="hamburger" viewBox="0 0 100 100" width="80"
             onclick="this.classList.toggle('active')">
@@ -28,16 +29,28 @@
             <li><a href="./planet-history.html">Planet History</a></li>
         </ul>
     </div>
-
+    <div class="theme-toggle" id="theme-toggle">
+        <svg viewBox="0 0 512 512" title="sun" class="sun">
+            <path
+                d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z" />
+        </svg>
+        <svg viewBox="0 0 512 512" title="moon" class="moon">
+            <path
+                d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z" />
+        </svg>
+    </div>
+    
+    <!--MAIN PAGE-->
     <div class="title">
         About Us
     </div>
 
-    <img src="../assets/img/saturnlogos.png" class="jamsz" />
+    <img src="../assets/img/saturnlogos.png" class="jamsz"
+        alt="JAMSZ logo." />
 
 
     <h2 class="headers">Who Are We</h2>
-    <p class="id-text">
+    <p class="info tab">
         We are a group of dedicated students from various schools across the Denver area who came together at Warren
         Tech with a shared passion for computers, engineering, and innovation.
         Our diverse backgrounds and skill levels make us a unique team, united by our eagerness to learn and grow in
@@ -51,7 +64,7 @@
     </p>
 
     <h2 class="headers">Our Mission</h2>
-    <p class="id-text">
+    <p class="info tab">
         Our mission is to design an accurate and seamless system for translating Earth-based time into planetary
         calendars.
         This innovative solution will address the challenges of synchronizing time across different planetary systems,
@@ -69,14 +82,16 @@
 <br>
 
 <body>
-    <div class="image-container id-text">
+    <div class="image-container info">
+
+        <!--JACOB-->
         <div class="photo-left">
             <div>
                 <h3 class="name-tag">Jacob Delzer</h3>
                 <br>
                 <img src="../assets/img/Jacob.jpeg" />
             </div>
-            <div>
+            <div class="phone-margin">
                 I am a Sophomore at Warren Tech and Senior at Green Mountain High School. Early in high school, I
                 learned about coding from electives and made it a hobby. I self taught what I wanted to know beyond
                 my classes. I learned Python, HTML, JS, CSS, C++, and TI-Basic. And ever since I learned of it, I had a
@@ -85,8 +100,10 @@
             </div>
         </div>
         <div class="border"></div>
+
+        <!--ALEX-->
         <div class="photo-right">
-            <div>
+            <div class="phone-margin">
                 Hello there! My name is Alex Luong, and I am eager to display my skills. I am from the Denver Metro
                 Area, where my parents came from Vietnam. In school, I have always had a brain for Math, as well as
                 Chemistry, hopefully being able to use those traits outside of school. I spend most of my time
@@ -106,14 +123,15 @@
             </div>
         </div>
         <div class="border"></div>
+
+        <!--MASON-->
         <div class="photo-left">
             <div>
                 <h3 class="name-tag">Mason Kohler</h3>
                 <br>
                 <img src="../assets/img/Mason.jpg" />
             </div>
-
-            <div>
+            <div class="phone-margin">
                 I am a senior in High School. Once I graduate, I plan on going to college to study computer science.
                 I strive to lead others to success, and try to maintain a positive attitude through difficult times.
                 Outside of school, I enjoy biking, board games, video games, playing piano, spending time with my
@@ -122,8 +140,10 @@
             </div>
         </div>
         <div class="border"></div>
+
+        <!--SAMMY-->
         <div class="photo-right">
-            <div class="id-text">
+            <div class="phone-margin">
                 Hi! I am Sammy Ibdah, I am a dedicated student with a passion for technology and learning. Always eager
                 to explore new ideas, and enjoy diving into complex topics, like new innovations of technology. With a
                 curious mindset and
@@ -137,13 +157,15 @@
             </div>
         </div>
         <div class="border"></div>
+
+        <!--ZED-->
         <div class="photo-left">
             <div>
                 <h3 class="name-tag">Zedrick Hoover</h3>
                 <br>
                 <img src="../assets/img/Zed.jpeg" />
             </div>
-            <div>
+            <div class="phone-margin">
                 I really enjoy programming. I have ever since I learned it existed. I am also interested in reading and
                 writing, especially the fantasy genre. I plan to go into a career of software development and plan to go
                 to Georgia tech for college in the computer science course.
@@ -159,5 +181,5 @@
     <script src="../js/main.js"></script>
 
 </body>
-</html>
 
+</html>

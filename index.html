@@ -13,6 +13,7 @@
 
 <body>
 
+    <!--NAVIGATION-->
     <div class="navbar" id="navbar">
         <svg class="hamRotate180 ham hamburger" id="hamburger" viewBox="0 0 100 100" width="80"
             onclick="this.classList.toggle('active')">
@@ -28,12 +29,23 @@
             <li><a href="src/pages/planet-history.html">Planet History</a></li>
         </ul>
     </div>
+    <div class="theme-toggle" id="theme-toggle">
+        <svg viewBox="0 0 512 512" title="sun" class="sun">
+            <path
+                d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z" />
+        </svg>
+        <svg viewBox="0 0 512 512" title="moon" class="moon">
+            <path
+                d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z" />
+        </svg>
+    </div>
 
+    <!--MAIN PAGE-->
     <div class="title">
         Cosmic Calendar
     </div>
 
-    <div class="info">
+    <div class="info tab">
         <p>
             Welcome to the Cosmic Calendar Website! Use our time conversion tool below to get an idea of time on
             different planets. Year 1, Day 1, midnight is the same for every planet. The number of years you see
@@ -57,50 +69,58 @@
     </div>
 
     <div class="planet-pics">
-        <img src="./assets/planet_pictures/earth.png" alt="earth" class="planet-image" id="planetpic1">
-        <img src="./assets/planet_pictures/earth.png" alt="earth" class="planet-image" id="planetpic2">
+        <img src="./assets/planet_pictures/earth.png" alt="" class="planet-image" id="planetpic1">
+        <img src="./assets/planet_pictures/earth.png" alt="" class="planet-image" id="planetpic2">
     </div>
 
     <div class="results dropdown-container" id="results">
-        <div class="info-notab" id="result1">Select a Date</div>
-        <div class="info-notab" id="result2">Select a Date</div>
+        <div class="info" id="result1">Select a Date</div>
+        <div class="info" id="result2">Select a Date</div>
     </div>
 
-
+    <!--PLANET DROPDOWN 1-->
     <div id="dropdown-content1" class="dropdown-modal">
         <!--PLANETS-->
         <div class="dropdown-header">Planets</div>
 
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/mercury.png" alt="">
+            <img src="./src/assets/planet pictures/mercury.png"
+                alt="An image of Mercury, a gray, rocky planet covered in craters, resembling Earth's Moon.">
             <label>Mercury</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/venus.png" alt="">
+            <img src="./src/assets/planet pictures/venus.png"
+                alt="Venus, a bright yellow planet veiled by thick clouds and a dense atmosphere.">
             <label>Venus</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/earth.png" alt="">
+            <img src="./src/assets/planet pictures/earth.png"
+                alt="Earth, a vibrant blue planet with swirling white clouds, green landmasses, and vast oceans.">
             <label>Earth</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/mars.png" alt="">
+            <img src="./src/assets/planet pictures/mars.png"
+                alt="Mars, a reddish-orange planet with dusty terrain, craters, and icy polar caps.">
             <label>Mars</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/jupiter.png" alt="">
+            <img src="./src/assets/planet pictures/jupiter.png"
+                alt="Jupiter, a massive planet with orange and white swirling bands and the Great Red Spot, a large storm.">
             <label>Jupiter</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/saturn.png" alt="">
+            <img src="./src/assets/planet pictures/saturn.png"
+                alt="Saturn, a pale yellow-brown planet surrounded by prominent icy rings.">
             <label>Saturn</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/uranus.png" alt="">
+            <img src="./src/assets/planet pictures/uranus.png"
+                alt="Uranus, a pale light blue-green planet tilted on its side.">
             <label>Uranus</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/neptune.png" alt="">
+            <img src="./src/assets/planet pictures/neptune.png"
+                alt="Neptune, a deep blue planet with faint white cloud streaks and a visible dark storm.">
             <label>Neptune</label>
         </div>
 
@@ -108,11 +128,13 @@
         <div class="dropdown-header">Dwarf Planets</div>
 
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/pluto.png" alt="">
+            <img src="./src/assets/planet pictures/pluto.png"
+                alt="Pluto, a tan and brown dwarf planet with a bright, heart-shaped region on its surface.">
             <label>Pluto</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/makemake.png" alt="">
+            <img src="./src/assets/planet pictures/makemake.png"
+                alt="Makemake, a reddish-brown dwarf planet with a bright, icy surface.">
             <label>Makemake</label>
         </div>
 
@@ -120,15 +142,18 @@
         <div class="dropdown-header">Moons</div>
 
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/moon.png" alt="">
+            <img src="./src/assets/planet pictures/moon.png"
+                alt="Earth's moon or Luna, a gray, cratered moon with dark plains scattered across its surface.">
             <label>Moon</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/europa.png" alt="">
+            <img src="./src/assets/planet pictures/europa.png"
+                alt="Europa, an icy moon with a smooth surface crisscrossed by reddish-brown fractures.">
             <label>Europa</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/titan.png" alt="">
+            <img src="./src/assets/planet pictures/titan.png"
+                alt="Titan, a moon with a thick, yellow-orange atmosphere that obscures its surface.">
             <label>Titan</label>
         </div>
 
@@ -136,102 +161,119 @@
         <div class="dropdown-header">Asteroids</div>
 
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/ceres.png" alt="">
+            <img src="./src/assets/planet pictures/ceres.png"
+                alt="Ceres, a gray dwarf planet with a cratered surface and bright spots.">
             <label>Ceres</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/vesta.png" alt="">
+            <img src="./src/assets/planet pictures/vesta.png"
+                alt="Vesta, an irregularly shaped asteroid with a gray, cratered surface.">
             <label>Vesta</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/pallas.png" alt="">
+            <img src="./src/assets/planet pictures/pallas.png"
+                alt="Pallas, a dark, slightly spherical shaped asteroid with visible craters.">
             <label>Pallas</label>
         </div>
     </div>
 
+    <!--PLANET DROPDOWN 2-->
     <div id="dropdown-content2" class="dropdown-modal">
         <!--PLANETS-->
         <div class="dropdown-header">Planets</div>
-    
+
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/mercury.png" alt="">
+            <img src="./src/assets/planet pictures/mercury.png"
+                alt="An image of Mercury, a gray, rocky planet covered in craters, resembling Earth's Moon.">
             <label>Mercury</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/venus.png" alt="">
+            <img src="./src/assets/planet pictures/venus.png"
+                alt="Venus, a bright yellow planet veiled by thick clouds and a dense atmosphere.">
             <label>Venus</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/earth.png" alt="">
+            <img src="./src/assets/planet pictures/earth.png"
+                alt="A vibrant blue planet with swirling white clouds, green landmasses, and vast oceans.">
             <label>Earth</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/mars.png" alt="">
+            <img src="./src/assets/planet pictures/mars.png"
+                alt="A reddish-orange planet with dusty terrain, craters, and icy polar caps.">
             <label>Mars</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/jupiter.png" alt="">
+            <img src="./src/assets/planet pictures/jupiter.png"
+                alt="A massive planet with orange and white swirling bands and the Great Red Spot, a large storm.">
             <label>Jupiter</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/saturn.png" alt="">
+            <img src="./src/assets/planet pictures/saturn.png"
+                alt="A pale yellow-brown planet surrounded by prominent icy rings.">
             <label>Saturn</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/uranus.png" alt="">
+            <img src="./src/assets/planet pictures/uranus.png" alt="A light blue-green planet tilted on its side.">
             <label>Uranus</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/neptune.png" alt="">
+            <img src="./src/assets/planet pictures/neptune.png"
+                alt="A deep blue planet with faint white cloud streaks and a visible dark storm.">
             <label>Neptune</label>
         </div>
-    
+
         <!--DWARFT PLANETS-->
         <div class="dropdown-header">Dwarf Planets</div>
-    
+
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/pluto.png" alt="">
+            <img src="./src/assets/planet pictures/pluto.png" alt="A tan and brown dwarf planet.">
             <label>Pluto</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/makemake.png" alt="">
+            <img src="./src/assets/planet pictures/makemake.png"
+                alt="A reddish-brown dwarf planet with a bright, icy surface.">
             <label>Makemake</label>
         </div>
-    
+
         <!--MOONS-->
         <div class="dropdown-header">Moons</div>
-    
+
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/moon.png" alt="">
+            <img src="./src/assets/planet pictures/moon.png"
+                alt="Earth's moon or Luna, a gray, cratered moon with dark plains scattered across its surface.">
             <label>Moon</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/europa.png" alt="">
+            <img src="./src/assets/planet pictures/europa.png"
+                alt="An icy moon with a smooth surface crisscrossed by reddish-brown fractures.">
             <label>Europa</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/titan.png" alt="">
+            <img src="./src/assets/planet pictures/titan.png"
+                alt="A moon with a thick, yellow-orange atmosphere that obscures its surface.">
             <label>Titan</label>
         </div>
-    
+
         <!--ASTEROIDS-->
         <div class="dropdown-header">Asteroids</div>
-    
+
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/ceres.png" alt="">
+            <img src="./src/assets/planet pictures/ceres.png"
+                alt="A gray dwarf planet with a cratered surface and bright spots.">
             <label>Ceres</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/vesta.png" alt="">
+            <img src="./src/assets/planet pictures/vesta.png"
+                alt="An irregularly shaped asteroid with a gray, cratered surface.">
             <label>Vesta</label>
         </div>
         <div class="dropdown-content">
-            <img src="./src/assets/planet pictures/pallas.png" alt="">
+            <img src="./src/assets/planet pictures/pallas.png"
+                alt="A dark, slightly spherical shaped asteroid with visible craters.">
             <label>Pallas</label>
         </div>
     </div>
 
-    </div>
     <div id="dropdown-content3" class="dropdown-modal">
         <div>
             <button class="clicker" id="now">Now</button>
@@ -245,7 +287,7 @@
     </div>
 
     <script src="src/js/ConvertForm.js" async defer></script>
-    <script src="src/js/main.js" async defer></script>
+    <script src="src/js/main.js" defer></script>
 </body>
 
 </html>

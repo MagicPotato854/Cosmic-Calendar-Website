@@ -61,20 +61,20 @@ img {
 
 .planet img {
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    animation: glow 2s ease-in-out infinite alternate;
 }
 
-@keyframes glow {
-    from {
-        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        border-color: rgba(255, 255, 255, 0.3);
-    }
-    to {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-        border-color: rgba(255, 255, 255, 0);
-    }
+body.light .planet img {
+    box-shadow: 0 0 2vw rgb(0, 0, 0);
+}
+
+body.dark .planet img {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 2vw rgba(255, 255, 255, 0.5);
+}
+
+#sun img {
+    border: 2px solid rgb(232, 105, 0);
+    box-shadow: 0 0 2vw rgb(232, 105, 0);
 }
 
 /* Modal Styles */
@@ -89,11 +89,10 @@ img {
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
-    color : white;
+    color: white;
 }
 
 .modal-content {
-    background: black;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -102,8 +101,20 @@ img {
     position: relative;
 }
 
+body.light .modal-content {
+    background-color: white;
+    color: black;
+}
+
+body.dark .modal-content {
+    background-color: black;
+    color: white;
+}
+
 .modal img {
-    max-width: 100px;
+    max-width: 200px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px black;
 }
 
 .close {

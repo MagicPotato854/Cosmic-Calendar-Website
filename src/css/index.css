@@ -110,32 +110,25 @@
 #dropdownbtn1 {
 	border-radius: 1em 1em 0 0;
 	border-bottom: 1px solid black;
-	transition: 0.2s;
-}
-
-#dropdownbtn1:hover {
-	border-radius: 0px;
 }
 
 #dropdown-content3 {
 	display: none;
 }
 
-/*
-#dropdownbtn2:hover {
-  border-radius:0px;
-}
-
-*/
-
 #dropdownbtn3 {
 	border-radius: 0 0 1em 1em;
 	border-top: 1px solid black;
-	transition: 0.2s;
 }
 
+#dropdownbtn1:hover,
+#dropdownbtn2:hover,
 #dropdownbtn3:hover {
-	border-radius: 0px;
+	background-color: #131313;
+	color: #09f;
+	text-shadow: 0px 0px 10px #09f;
+	box-shadow: 0px 0px 10px #09f;
+	transition: 250ms;
 }
 
 /* Layout for the dropdowns */
@@ -157,6 +150,7 @@
 	grid-column: 1 / -1;
 	text-align: center;
 	width: 100%;
+	color: white;
 }
 
 /* Ensure each dropdown is aligned properly */
