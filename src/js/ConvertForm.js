@@ -23,7 +23,7 @@ function updatePlanetImage(selectElement, imageElement, button) {
   const planet = selectElement; // Get the selected planet's value
   button.innerHTML = capitalizeFirstLetter(selectElement);
 
-  imageElement.src = `src/assets/planet pictures/${planet}.png`; // Update the image source
+  imageElement.src = `src/assets/img/planets/${planet}.png`; // Update the image source
   imageElement.alt = planet.charAt(0).toUpperCase() + planet.slice(1); // Set the alt text to match the planet name
 }
 
@@ -96,37 +96,50 @@ class Planet {
 }
 
 // Create Planet Objects
+// Planets
 Mercury = new Planet("Mercury", 2_111.28, 4_223.28);
 Venus = new Planet("Venus", 5_392.8, 2_802);
 Earth = new Planet("Earth", 8_765.82335025, 24);
 Mars = new Planet("Mars", 16_487.4118608, 24.65979);
 Jupiter = new Planet("Jupiter", 103_982.16, 10.55);
 Saturn = new Planet("Saturn", 258_240.845, 9.933);
-Neptune = new Planet("Neptune", 1_444_530.151, 16.1);
 Uranus = new Planet("Uranus", 736_449.6, 17.233);
+Neptune = new Planet("Neptune", 1_444_530.151, 16.1);
+
+// Dwarf Planets
 Pluto = new Planet("Pluto", 2_183_561.195452403, 153.36);
-Europa = new Planet("Europa", 103_982.16, 85.2);
 Makemake = new Planet("Makemake", 2_685_975.641845082, 22.8266);
+
+// Moons
 Moon = new Planet("Moon", 8765.813, 708.734);
+Europa = new Planet("Europa", 103_982.16, 85.2);
 Titan = new Planet("Titan", 103_982.16, 382.8);
+// Asteroids
 Ceres = new Planet("Ceres", 40_398.19866, 9.07417);
 Vesta = new Planet("Vesta", 31_809.9733898, 5.34212766);
 Pallas = new Planet("Pallas", 40_418.0056554, 7.8132214);
 
 const planets = {
+  // Planets
   mercury: Mercury,
   venus: Venus,
   earth: Earth,
   mars: Mars,
   jupiter: Jupiter,
   saturn: Saturn,
-  neptune: Neptune,
   uranus: Uranus,
+  neptune: Neptune,
+
+  // Dwarf Planets
   pluto: Pluto,
-  europa: Europa,
   makemake: Makemake,
+
+  // Moons
   moon: Moon,
+  europa: Europa,
   titan: Titan,
+
+  // Asteroids
   ceres: Ceres,
   vesta: Vesta,
   pallas: Pallas,
@@ -209,10 +222,6 @@ nowTime.addEventListener("click", () => {
     dropdownbtn3.innerText = "Select Time: " + datee;
   }
 });
-
-// ...existing code...
-
-// loop through each of the planets in the dropdown modal to add event listeners to style.display to none
 
 // Calculate distance between two planets
 /*

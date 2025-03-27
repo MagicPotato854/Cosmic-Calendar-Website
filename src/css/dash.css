@@ -12,10 +12,20 @@ h2 {
   color: inherit;
   text-align: center;
   margin-bottom: 0;
+  width: 40rem;
 }
 
 body {
   color: black; /* Make the numbers on the clocks black */
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* Navbar Custom Width */
+.navbar.menu-active {
+  width: 315px;
 }
 
 /* Clock */
@@ -116,11 +126,28 @@ body {
 .clockContainer {
   position: relative;
   height: 40rem;
+  width: 40rem;
+}
+
+.clock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  row-gap: 2rem;
+  column-gap: 10rem;
+  padding: 0px;
+  justify-items: center;
+  padding: 4rem;
 }
 
 @media screen and (max-width: 600px) {
   .clockContainer {
     transform: scale(0.6);
     transform-origin: top center;
+    height: 25rem;
+  }
+
+  .clock-grid {
+    gap: 2rem;
+    padding: auto;
   }
 }

@@ -1,4 +1,10 @@
 /*CONVERT FORM CSS*/
+
+/* Navbar Custom Width */
+.navbar.menu-active {
+  width: 350px;
+}
+
 /* Center the heading and form elements */
 .convertform {
 	display: flex;

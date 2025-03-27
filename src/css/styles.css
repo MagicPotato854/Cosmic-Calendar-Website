@@ -166,7 +166,6 @@ h2 {
 }
 
 .navbar.menu-active {
-  width: 350px;
   background-color: inherit;
   border-radius: 10em;
 }
