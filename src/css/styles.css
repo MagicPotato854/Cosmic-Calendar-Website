@@ -26,7 +26,7 @@ html {
 body {
   padding: 2rem;
   border-radius: 3em;
-  transition: 50ms ease-in-out;
+  transition: 100ms ease-in-out;
 }
 
 body.light {
@@ -70,7 +70,7 @@ h2 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   line-height: 125%;
-  font-size: clamp(24px, 1.5vw, 100px);
+  font-size: clamp(16px, 1.5vw, 100px);
   color: inherit;
 }
 
@@ -152,6 +152,11 @@ h2 {
   cursor: pointer;
 }
 
+.sun,
+.moon {
+  stroke: none;
+}
+
 .sun {
   position: absolute;
   width: 26px;
@@ -166,7 +171,6 @@ h2 {
 }
 
 .navbar.menu-active {
-  width: 350px;
   background-color: inherit;
   border-radius: 10em;
 }

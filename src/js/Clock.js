@@ -147,7 +147,7 @@ class clock {
 function generateFace(radius, offset, hours, unit, face, mult = 1) {
   
   let scale = 12; // What size to rescale at
-  let numInt = 6; // At what interval to set char to hour
+  let numInt = 5; // At what interval to set char to hour
   
   while(hours > scale) {
     hours = hours / scale;
@@ -207,15 +207,19 @@ function animate() {
 document.addEventListener('DOMContentLoaded', function () {
   
   let body = document.getElementsByTagName('body')[0];
+  let clockGrid = document.getElementById('clock-grid');
   
   for(let i = 0; i < planets.length; i++) {
+    let clockBox = document.createElement('div');
+    clockGrid.appendChild(clockBox);
+    clockBox.className = 'clockBox';
     
     let header = document.createElement('h2');
-    body.appendChild(header);
+    clockBox.appendChild(header);
     header.innerText = planets[i].name;
     
     let clock = document.createElement('div');
-    body.appendChild(clock);
+    clockBox.appendChild(clock);
     clock.id = planets[i].name;
     clock.className = 'clockContainer';
     

@@ -8,6 +8,11 @@ img {
     margin: 1rem 0px 1rem 0px;
 }
 
+/* Navbar Custom Width */
+.navbar.menu-active {
+  width: 290px;
+}
+
 .planets {
     display: flex;
     flex-direction: column;
