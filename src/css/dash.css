@@ -134,20 +134,27 @@ html, body {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   row-gap: 2rem;
   column-gap: 10rem;
-  padding: 0px;
   justify-items: center;
   padding: 4rem;
 }
 
-@media screen and (max-width: 600px) {
-  .clockContainer {
-    transform: scale(0.6);
-    transform-origin: top center;
-    height: 25rem;
+@media screen and (max-width: 700px) {
+  .clock-grid {
+    display: block;
+    padding: 0;
   }
 
-  .clock-grid {
-    gap: 2rem;
-    padding: auto;
+  .clockBox {
+    transform: scale(0.5);
+    transform-origin: center top;
+    margin-bottom: -20rem;
+  }
+
+  h2 {
+    font-size: 3em;
+  }
+
+  body {
+    overflow-y: hidden;
   }
 }
